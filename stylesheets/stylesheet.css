@@ -110,7 +110,7 @@ footer p {
 
 a {
   text-decoration: none;
-  color: #007edf;
+  color: #89c993;
   text-shadow: none;
 
   transition: color 0.5s ease;
@@ -293,12 +293,12 @@ Full-Width Styles
 }
 
 #header_wrap {
-  background: #212121;
-  background: -moz-linear-gradient(top, #373737, #212121);
-  background: -webkit-linear-gradient(top, #373737, #212121);
-  background: -ms-linear-gradient(top, #373737, #212121);
-  background: -o-linear-gradient(top, #373737, #212121);
-  background: linear-gradient(top, #373737, #212121);
+  background: #654;
+  background: -moz-linear-gradient(top, #654, #000);
+  background: -webkit-linear-gradient(top, #654, #000);
+  background: -ms-linear-gradient(top, #654, #000);
+  background: -o-linear-gradient(top, #654, #000);
+  background: linear-gradient(top, #654, #000);
 }
 
 #header_wrap .inner {
