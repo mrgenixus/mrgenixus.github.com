@@ -1,444 +1,328 @@
 /* http://paletton.com/#uid=33L0u0kfSqB6iHLaTvCl9lnqJfM */
-body {
-  background-color:#7E4415;
-  font-family: 'Open Sans', sans-serif;
-}
 
-.resume:before {
-  height: 160px;
-  width: 100%;
-  background: url(phx-park.jpg);
-  background-size: cover;
-  background-clip: content-box;
-  background-repeat: no-repeat;
-  display: block;
-  content: '';
-}
+padding-start(dimension)
+  -webkit-padding-start dimension
+  -moz-padding-start dimension
+  -o-padding-start dimension
+  padding-start dimension
 
-#objective {
-  display: none;
-}
+padding-end(dimension)
+  -webkit-padding-end dimension
+  -moz-padding-end dimension
+  -o-padding-end dimension
+  padding-end dimension
 
-#objective:target {
-  display: block;
-}
+body
+  background-color #7E4415
+  font-family 'Open Sans', sans-serif
 
-.resume {
-  background-color: white;
-}
+#objective
+  display none
+  &:target
+    display block
 
-@media screen and (min-width: 840px) {
-  body {
-    background: url(phx-park.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed
-  }
+@media screen and (min-width: 840px)
+  body
+    background url(phx-park.jpg)
+    background-repeat no-repeat
+    background-size cover
+    background-attachment fixed
 
-  .resume:before {
-    height: 0px;
-  }
+a
+  text-decoration none
+  font-style italic
+  color white
+  display inline-block
+  background-color #4F628E
+  padding .2em 8px
+  margin 0.2em 0px
+  border-radius 0px
 
-  .resume {
-    background-color: rgba(255,255,255,.8);
-  }
-}
+  &:target
+    background-color #7E4415
 
-a {
-  text-decoration:none;
-  font-style:italic;
-  color:white;
-  display:inline-block;
-  background-color:#4F628E;
-  padding:.2em 8px;
-  margin:0.2em 0px;
-  border-radius:0px;
-}
+  @media print
+    color black
+    &[href]:after
+      content " <" attr(href) ">"
+    &[href=""]:after,
+    &[href^="#"]:after,
+    &[href^="tel"]:after
+      content ''
 
-@media print {
-  a {
-    color: black;
-  }
+p
+  font-family Georgia, times
 
-  
-  a[href]:after {
-    content: " <" attr(href) ">";
-  }
+h2, h3, h4, h5, h6
+  -webkit-margin-before 0
+  -webkit-margin-after 0
 
-  a[href=""]:after, a[href^="#"]:after, a[href^="tel"]:after {
-    content: '';
-  }
-}
+dd, section, header
+  page-break-inside avoid
 
-a:target {
-  background-color: #7E4415;
-}
+dt
+  page-break-after avoid
 
-p {
-  font-family: Georgia, times
-}
+.resume
+  background-color white
 
-h2, h3, h4, h5, h6 {
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-}
+  &:before
+    height 160px
+    width 100%
+    background url(phx-park.jpg)
+    background-size cover
+    background-clip content-box
+    background-repeat no-repeat
+    display block
+    content ''
 
-dd, section, header {
-  page-break-inside: avoid;
-}
+  > header,
+  > section
+    padding 0 26px
+    position relative
 
-dt {
-  page-break-after: avoid;
-}
+  > section > section
+    position relative
+    padding-left 26px
 
-@media screen and (min-width: 1034px) {
-  .resume {
-    width:940px;
-    margin-left: 5%;
-  }
-}
+  @media screen and (min-width: 1034px)
+    width 940px
+    margin-left 5%
 
-@media screen and (min-width: 840px) {
-  .resume > section {
-    margin-left: 248px;
-  }
+  @media screen and (min-width: 840px)
+    background-color rgba(255,255,255,.8)
+    &:before
+      height 0px
 
-  .resume > section > header {
-    margin-left: -248px;
-    border-top: 1px solid black;
-  }
+    > section
+      margin-left 248px
+      > header
+        margin-left -248px
+        border-top 1px solid black
+      > section
+        border-left 1px solid #4F628E
+        > header
+          position absolute
+          left -248
+          width 248px
 
-  .resume > section > section > header {
-    position: absolute;
-    left: -248;
-    width: 248px;
-  }
+  @media print
+    > header,
+    > section > header
+      text-align right
 
-  .resume > section > section {
-    border-left: 1px solid #4F628E;
-  }
-}
+#work
+  position relative
 
-.resume > header, .resume > section {
-  padding:0 26px;
-  position: relative;
-}
+  aside
+    position absolute
+    right 26
+    top 0
 
-@media print {
-  .resume > header, .resume > section > header {
-    text-align: right;
-  }
-}
+    a
+      background-color #D4C26A
 
-.resume > section > section {
-  position: relative;
-  padding-left: 26px;
-}
+      &[href="#none"]
+        display none
 
-#work {
-  position:relative;
-}
-
-#work aside {
-  position:absolute;
-  right: 26;
-  top:0;
-}
-
-#work aside a {
-  background-color: #D4C26A;
-}
+      &[href="#none"],
+      &[href=""]
+        background-color #7E6C15 
 
 #work aside a:target,
 #featured:target [name=featured],
 #work:target [name=work]
-{
-  background-color: #7E6C15;
-}
-
-#work aside a[href="#none"] {
-  display: none;
-}
-
-#work aside a[href="#none"], #work aside a[href=""] {
-  background-color: #7E6C15; 
-}
+  background-color #7E6C15
 
 #featured:target #work aside a[href="#none"],
-  #work:target aside a[href="#none"],
-  #work:target aside a[href=""],
-  #featured:target #work aside a[href=""]
-{
-  background-color: #D4C26A !important;
-}
+#work:target aside a[href="#none"],
+#work:target aside a[href=""],
+#featured:target #work aside a[href=""]
+  background-color #D4C26A !important
 
-@media screen and (max-width: 575px) {
-  #work aside a {
-    display: none;
-  }
+@media screen and (max-width: 575px)
+  #work aside a
+    display none
 
-  #work aside a[href="#none"] {
-    display: inline-block;
-  }
-}
+  #work aside a[href="#none"]
+    display inline-block
 
-@media print {
-  #work aside {
-    display: none;
-  }
-}
+@media print
+  #work aside
+    display none
 
-dl.projects, dl.roles {
-  padding-top: 1.5em;
-}
+dl.projects,
+dl.roles
+  padding-top 1.5em
 
-@media screen and (min-width: 575px) {
+@media screen and (min-width: 575px)
 
-  dl.projects.roles:before {
-    content: "Projects / Roles";
-    font-weight:bold;
+  dl.projects.roles:before
+    content "Projects / Roles"
+    font-weight bold
+    color white
+    display inline-block
+    background-color #4F628E
+    padding .2em 8px
+    margin-bottom 0.2em
+    position absolute
+    right 0
 
-    color:white;
-    display:inline-block;
-    background-color:#4F628E;
-    padding:.2em 8px;
-    margin-bottom: 0.2em;
-    position:absolute;
-    right: 0;
-  }
+  .skills
+    display block
 
-  .skills {
-    display: block;
-  }
+#featured:target .featured + dd.project-details
+  display block
 
-}
+.featured + dd.product-details
+  position relative
 
-#featured:target .featured + dd.project-details {
-  display: block;
-}
+@media screen
 
-.featured + dd.product-details{
-  position:relative;
-}
+  #featured:target .featured a,
+  .project-name.featured:target a,
+  #work:target .featured a
+    &:after
+      font-style italic
+      content 'Featured'
+      text-decoration none
+      font-style italic
+      color white
+      display block
+      background-color #7E4415
+      padding 0.2em 8px
+      display inline-block
+      margin 0 0.8em
 
-@media screen {
+    &:before
+      content ''
 
-  #featured:target .featured a:after, .project-name.featured:target a:after, #work:target .featured a:after {
-    font-style: italic;
-    content: 'Featured';
-    text-decoration:none;
-    font-style:italic;
-    color:white;
-    display:block;
-    background-color:#7E4415;
-    padding:0.2em 8px;
-    display: inline-block;
-    margin: 0 0.8em;
-  }
+  .featured a:before
+    font-style italic
+    content ' Featured: '
+    color #7E4415
+    font-variant small-caps
 
-  #featured:target .featured a:before, .project-name.featured:target a:before, #work:target .featured a:before {
-    content: '';
-  }
+#work:target dd.project-details
+  display block
 
-  .featured a:before {
-    font-style: italic;
-    content: ' Featured: ';
-    color:#7E4415;
-    font-variant: small-caps;
-  }
+ul.skills
+  @media screen and (max-width: 575px), print
+    padding-start(0px)
+    padding-end(0px)
 
-}
+    &:before
+      font-weight bold
+    
+    li > ul
+      width 0
+      display inline-block
+      height 0
+      overflow hidden
+    
+    li > ul
+      margin-left -0.7em
 
-#work:target dd.project-details {
-  display: block;
-}
+  @media screen and (min-width: 575px)
+    padding-start(40px)
+    padding-end(40px)
 
-@media screen and (max-width: 575px), print {
-  ul.skills {
-    -webkit-padding-start: 0px;
-    -moz-padding-start: 0px;
-    -o-padding-start: 0px;
-    padding-start: 0px;
+    position relative
+    padding-top 2.25em
+    padding-bottom 1.5em
+    background-color #D4C26A
+    border 1px solid #7E6C15
 
-    -webkit-padding-end: 0px;
-    -moz-padding-end: 0px;
-    -o-padding-end: 0px;
-    padding-end: 0px;
-  }
+    &:before
+      font-style italic
+      text-decoration none
+      font-style italic
+      color white
+      display block
+      background-color #4F628E
+      padding .2em 8px
+      position absolute
+      left 0
+      top 0
 
-  ul.skills:before {
-    font-weight: bold;
-  }
+  &:before
+    content 'Skills:'
 
-  ul.skills li > ul {
-    width: 0;
-    display: inline-block;
-    height: 0;
-    overflow: hidden
-  }
+  li
+    display inline
+    font-family 'Monserrat', Verdana, Geneva, sans-serif
+    &:last-of-type:before
+      content 'and '
 
-  ul.skills li > ul {
-    margin-left: -0.7em;
-  }
-}
+    &:first-of-type:before
+      content ''
 
-@media screen and (min-width: 575px) {
+    &:last-of-type:after
+      content ''
 
-  ul.skills {
-    -webkit-padding-start: 40px;
-    -moz-padding-start: 40px;
-    -o-padding-start: 40px;
-    padding-start: 40px;
+    &:after
+      content ','
 
-    -webkit-padding-end: 40px;
-    -moz-padding-end: 40px;
-    -o-padding-end: 40px;
-    padding-end: 40px;
+  ul
+    display inline-block
+    padding-start(0)
+    padding-end(0)
+    &:before
+      content "("
+    &:after
+      content ")"
 
-    position:relative;
-    padding-top:2.25em;
-    padding-bottom:1.5em;
-    /*border-bottom: 1px solid black;
-    border-right: 1px solid black;*/
-    background-color:#D4C26A;
-    /*box-shadow: -4px 4px 4px 0px #AA973A;*/
-    border: 1px solid #7E6C15;
-  }
+  > ul > ul
+    &:before
+      content "["
+    &:after
+      content "]"
 
-  ul.skills:before {
-    font-style: italic;
-    text-decoration:none;
-    font-style:italic;
-    color:white;
-    display:block;
-    background-color:#4F628E;
-    padding:.2em 8px;
-    position:absolute;
-    left:0; top: 0;
-  }
-}
+dt.project-name
+  a
+    background inherit
+    color inherit
+    font-style inherit
+    display inherit
+    margin inherit
+    padding inherit
 
-ul.skills:before {
-  content: 'Skills:';
-}
+  a:hover
+    color #4F628E
+    text-decoration underline
 
-ul.skills li {
-  display: inline;
-  font-family: 'Monserrat', Verdana, Geneva, sans-serif
-}
+  &:target + dd.project-details
+    display block
 
-ul.skills li:last-of-type:before {
-  content: 'and ';
-}
+@media screen
+  dd.project-details
+    display none
 
-ul.skills li:first-of-type:before {
-  content: '';
-}
+ul.references
+  list-style none
+  padding-start(0)
+  padding-end(0)
+  padding-top 1.7em
 
-ul.skills li:last-of-type:after {
-  content: '';
-}
+  .name
+    @media screen and (max-width: 575px)
+      display block 
 
-ul.skills li:after {
-  content: ',';
-}
+    @media screen and (min-width: 575px)
+      width 248px
+      display inline-block
 
-ul.skills ul {
-  display: inline-block;
-  -webkit-padding-start: 0;
-  -moz-padding-start: 0;
-  -o-padding-start: 0;
-  padding-start: 0;
+  a
+    font-style none
+    font-family Georgia, times
 
-  -webkit-padding-end: 0;
-  -moz-padding-end: 0;
-  -o-padding-end: 0;
-  padding-end: 0;
-
-}
-
-ul.skills ul:before {
-  content: "(";
-}
-
-ul.skills ul:after {
-  content: ")";
-}
-
-ul.skills > ul > ul:before {
-  content: "[";
-}
-
-ul.skills > ul > ul:after {
-  content: "]";
-}
-
-dt.project-name a {
-  background: inherit;
-  color:inherit;
-  font-style: inherit;
-  display: inherit;
-  margin: inherit;
-  padding: inherit;
-}
-
-dt.project-name a:hover {
-  color: #4F628E;
-  text-decoration: underline;
-}
-
-@media screen {
-  dd.project-details {
-    display:none;
-  }
-}
-
-dt.project-name:target + dd.project-details{
-  display: block;
-}
-
-ul.references {
-  list-style: none;
-  -webkit-padding-start: 0;
-  -moz-padding-start: 0;
-  -o-padding-start: 0;
-  padding-start: 0;
-
-  -webkit-padding-end: 0;
-  -moz-padding-end: 0;
-  -o-padding-end: 0;
-  padding-end: 0;
-
-  padding-top: 1.7em;
-}
-
-@media screen and (max-width: 575px) {
-  ul.references .name {
-    display: block 
-  }
-}
-@media screen and (min-width: 575px) {
-  ul.references .name {
-    width: 248px;
-    display: inline-block;
-  }
-}
-
-ul.references a {
-  font-style: none;
-  font-family: Georgia, times;
-}
-
-
-ul.references:before {
-  content: "Please Contact:";
-  font-weight:bold;
-
-  color:white;
-  display:inline-block;
-  background-color:#7E6C15;
-  padding:.2em 8px;
-  margin-bottom: 0.2em;
-  position:absolute;
-  top: 0;
-}
+  &:before
+    content "Please Contact:"
+    font-weight bold
+    color white
+    display inline-block
+    background-color #7E6C15
+    padding .2em 8px
+    margin-bottom 0.2em
+    position absolute
+    top 0
