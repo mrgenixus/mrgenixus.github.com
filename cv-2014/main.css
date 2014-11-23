@@ -51,7 +51,7 @@ a {
     color: #000;
   }
   a[href]:after {
-    content: " <" attr(href) ">";
+    content: " <" attr(data-href-prefix) attr(href) ">";
   }
   a[href=""]:after,
   a[href^="#"]:after,
@@ -324,9 +324,11 @@ dt.project-name a[href^="#"] {
   padding: inherit;
   box-shadow: inherit;
 }
-dt.project-name a:hover[href^="#"] {
-  color: #4f628e;
-  text-decoration: underline;
+@media screen {
+  dt.project-name a:hover[href^="#"] {
+    color: #4f628e;
+    text-decoration: underline;
+  }
 }
 @media screen {
   dd.project-details {
