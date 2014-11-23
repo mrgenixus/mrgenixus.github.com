@@ -315,15 +315,16 @@ ul.skills > ul > ul:before {
 ul.skills > ul > ul:after {
   content: "]";
 }
-dt.project-name a {
+dt.project-name a[href^="#"] {
   background: inherit;
   color: inherit;
   font-style: inherit;
   display: inherit;
   margin: inherit;
   padding: inherit;
+  box-shadow: inherit;
 }
-dt.project-name a:hover {
+dt.project-name a:hover[href^="#"] {
   color: #4f628e;
   text-decoration: underline;
 }

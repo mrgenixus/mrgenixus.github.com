@@ -6,54 +6,316 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="description" content="mrgenixus.github.com : An Overview" />
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="cv-2014/main.css">
+    <style>
+      @media screen and (min-width: 575px) {
+        #forkme_banner {
+          display: block;
+          position: absolute;
+          right: 26px;
+          top: 0px;
+          z-index: 10;
+        }
+      }
 
+      a {
+        box-shadow: 0 0 10px rgba(0,0,0,.5);
+      }
+
+      #forkme_banner a {
+          display: inline-block;
+          padding: 10px 10px 10px 10px;
+          position: static;
+          color: #fff;
+          font-weight: 700;
+          box-shadow: 0 0 10px rgba(0,0,0,.5);
+          border-bottom-left-radius: 2px;
+          border-bottom-right-radius: 2px;
+          overflow: hidden;
+          margin: 0;
+          margin-right: 8px;
+      }
+
+      #forkme_banner a.github-link:after {
+        background-size: inherit;
+        width: 32px;
+        height: 32px;
+        margin: -8px 0px -11px 10px;
+      }
+
+      #forkme_banner a:last-of-type {
+        margin-right: 0;
+      }
+
+      ul.technologies:before {
+        content: 'Technologies:';
+      }
+
+      @media screen and (min-width: 575px) {
+        a.github-link {
+          position:absolute;
+          right: 0;
+          top: 0;
+          margin-top: 0;
+        }
+      }
+
+      a.github-link:after {
+        content: '';
+        background: url('../images/blacktocat.png') #4f628e no-repeat 50% 50%;
+        background-origin: border-box;
+        background-size: 16px;
+        display: inline-block;
+        width: 16px;
+        height: 22px;
+        margin: -2px -2px -6px 8px;
+      }
+
+      .document {
+        overflow: hidden;
+      }
+
+      /* remove this stop-gap style */
+      .resume > section > section > header {
+        left: -248px;
+      }
+
+      #repos:target dd.project-details {
+        display: block;
+      }
+
+      @media screen and (min-width: 575px) {
+        #repos aside {
+          position: absolute;
+          right: 26px;
+          top: 0;
+        }
+      }
+
+      #repos aside a {
+        background-color: #d4c26a;
+      }
+
+      #repos aside a:target,
+      #featured:target [name=featured],
+      #repos:target [name=repos] {
+        background-color: #7e6c15;
+      }
+      #repos aside a[href="#none"] {
+        display: none;
+      }
+      #repos aside a[href="#none"],
+      #repos aside a[href=""] {
+        background-color: #7e6c15;
+      }
+
+      #featured:target #repos aside a[href="#none"],
+      #repos:target aside a[href="#none"],
+      #repos:target aside a[href=""],
+      #featured:target #repos aside a[href=""] {
+        background-color: #d4c26a !important;
+      }
+
+      dt.project-name {
+        position: relative;
+      }
+
+      .document {
+        box-shadow: 0 0 10px rgba(0,0,0,.4);
+      }
+
+      #featured:target .featured a.github-link,
+      .project-name:target a.github-link,
+      #repos:target .project-name a.github-link {
+        display: block;
+      }
+
+      .project-name a.github-link {
+        display: none;
+      }
+
+      </style>
     <title>@mrgenxius</title>
   </head>
 
   <body>
+    <div class="resume document" id="featured">
+      <!-- HEADER -->
+      <header>
+        <h1 id="project_title">Benjamin West</h1>
+        <div id="forkme_banner">
+          <a id="owner_cv" href="http://about.me/mrgenixus">About Me</a>
+          <a id="owner_cv" href="/cv-2014">Curriculumn Vitae</a>
+          <a class="github-link" href="https://github.com/mrgenixus">View on GitHub</a>
+        </div>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/mrgenixus">View on GitHub</a>
+      </header>
 
-          <h1 id="project_title">@mrgenixus</h1>
-          <h2 id="project_tagline">Explanatory Work</h2>
-          <h3 id="owner_cv"><a href="/cv-2014">Curriculumn Vitae</a></h3>
-
+      <!-- MAIN CONTENT -->
+      <section id="repos" class="inner">
+        <header>
+          <h2>Github Projects</h2>
+          <aside>
+            Display:
+            <a href="#featured" name="featured">Featured</a>
+            <a href="#repos" name="repos">All</a>
+            <a href="">None</a>
+            <a href="#none" name="none">None</a>
+          </aside>
         </header>
-    </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>Portfolio Repos</h1>
+        <section>
+          <header>
+            <h3>Portfolio Repos</h3>
+          </header>
 
-<ul>
-<li><a href="http://github.com/mrgenixus/namespace-info">Namespacing and Javascript</a></li>
-<li><a href="http://github.com/mrgenixus/sc-proposal">Site Design Proposal (ca. 2003/2004)</a></li>
-<li><a href="http://github.com/mrgenixus/working-with-iframe">iFrame tests and concept</a></li>
-<li><a href="https://github.com/mrgenixus/desktop-information-manager">Desktop-Integrated PIM</a></li>
-<li><a href="http://mrgenixus.github.com/ajax-forms">Ajax-forms tiny implementation for working with forms/ajax</a></li>
-<li><a href="http://mrgenixus.github.com/micro-modal">Micro-modal smallest modal implementation</a></li>
-</ul><h1>Project Repos</h1>
 
-<ul>
-<li><a href="http://gtihub.com/mrgenixus/genome_skittle">Skittle Genome Visualizer (lib)</a></li>
-<li><a href="https://github.com/mrgenixus/book-store">Book Recommendations App</a></li>
-</ul>
+          <dl>
+            <dt id="repo-namespacing-and-javascript" class="project-name">
+              <a href="#repo-namespacing-and-javascript">Namespacing and Javascript</a>
+              <a class="github-link" href="http://github.com/mrgenixus/namespace-info">namepace-info</a>
+            </dt>
+            <dd class="project-details">
+              <ul class="skills technologies">
+                <li>Javascript</li>
+                <li>Markdown</li>
+              </ul>
+              <p>
+                A review of 15 lexical features of Javascript.  These concepts should be familiar to any JavaScript/Front-end Developer
+              </p>
+            </dd>
+            <dt id="repo-sc-proposal" class="project-name">
+              <a href="#repo-sc-proposal">Site Design Proposal (ca. 2003/2004)</a>
+              <a class="github-link" href="http://github.com/mrgenixus/sc-proposal">sc-proposal</a>
+            </dt>
+            <dd class="project-details">
+              <ul class="skills technologies">
+                <li>Javascript</li>
+                <li>HTML 4</li>
+                <li>CSS (Pre CSS2)</li>
+              </ul>
+              <p>
+                In 2003/2004, this project was written as part of a proposal to Silver Canyon Coffee Company, a roaster in Colorado.  Though the pitch was never made, this work was a formative example of pre-ajax front-end work that became the basis for later work with front-end javascript.
+              </p>
+            </dd>
+            <dt id="repo-working-with-iframe" class="project-name">
+              <a href="#repo-working-with-iframe">iFrame tests and concept</a>
+              <a class="github-link" href="http://github.com/mrgenixus/working-with-iframe">working-with-iframe</a>
+            </dt>
+            <dd class="project-details">
+              <ul class="skills technologies">
+                <li>Javascript</li>
+                <li>CORS</li>
+                <li>Same-domain-policy</li>
+                <li>Bootstrap</li>
+              </ul>
+              <p>
+                <i>lets just say, you probably don't need to refrence this for anything that you SHOULD be doing</i>
+
+                This is designed to work with javascript interacting between frames and is designed to demonstrate what can and cannot be communicated via JavaScript beween frames.
+
+              </p>
+              <p>
+                <a href="http://mrgenixus.github.io/working-with-iframe">Example</a>
+              </p>
+            </dd>
+            <dt id="repo-desktop-information-manager" class="project-name">
+              <a href="#repo-desktop-information-manager">Desktop-Integrated Personal Information Manager(PIM)</a>
+              <a class="github-link" href="http://github.com/mrgenixus/desktop-information-manager">desktop-information-manager</a>
+            </dt>
+            <dd class="project-details">
+              <ul class="skills technologies">
+                <li>Javascript</li>
+                <li>Windows Active Desktop</li>
+              </ul>
+              <p>
+                Initially built to provide an interface for an HTML document generated from a FoxPro Database, this put my contacts into an iframe on the Desktop.  Due to technology changes, it no longer works.
+                At the time, I was particularly proud of the way that the Javascript used the HTML to serialize fields from the database, and pull them out for presentation in a new window.
+              </p>
+            </dd>
+            <dt id="repo-ajax-forms" class="project-name">
+              <a href="#repo-ajax-forms">
+                Ajaidrms tiny implementation for working with forms/ajax
+              </a>
+              <a class="github-link" href="http://github.com/mrgenixus/ajax-forms">ajax-forms</a>
+            </dt>
+            <dd class="project-details">
+              <ul class="skills technologies">
+                <li>Javascript</li>
+              </ul>
+              <p>
+                Originally built to prove and idea this represents an example of how one might address submitting forms via AJAX as a general case
+              </p>
+              <p>
+                <a href="ajax-forms">More information...</a>
+              </p>
+            </dd>
+            <dt id="repo-micro-modal" class="project-name">
+              <a href="#repo-micro-modal">
+                Micro-Modal: smallest modal implementation
+              </a>
+              <a class="github-link" href="http://github.com/mrgenixus/micro-modal">micro-modal</a>
+            </dt>
+            <dd class="project-details">
+              <ul class="skills technologies">
+                <li>Javascript</li>
+              </ul>
+              <p>
+                This was originally a snippet to use the least possible code to create a modal.
+              </p>
+              <p>
+                <a href="micro-modal">More information...</a>
+              </p>
+            </dd>
+          </dl>
+        </section>
+        <section>
+          <header>
+            <h3>Project Repos</h3>
+          </header>
+          <dl>
+            <dt id="repo-foodie" class="project-name">
+              <a href="#repo-foodie">
+                Foodie Meal Planner
+              </a>
+              <a class="github-link" href="http://github.com/mrgenixus/foodie">foodie</a>
+            </dt>
+            <dd class="project-details">
+              <ul class="skills technologies">
+                <li>Javascript</li>
+                <li>Rails</li>
+                <li>Heroku</li>
+                <li>Ruby/Rails Timezones</li>
+                <li>Oauth2/Omniauth</li>
+                <li>Google Calendar</li>
+              </ul>
+              <p>
+                Foodie is designed to allow groups to plan meals and cooks for a week.
+
+                Potentially good for camps, on-site teams, colleges, anybody who has community meals.
+
+                <ul>
+                  <li>Add a Meal</li>
+                  <li>Plan your week and your menu</li>
+                  <li>Pick Cooks and support</li>
+                </ul>
+              </p>
+              <p>
+                <a href="foodie">More information...</a>
+              </p>
+            </dd>
+          </dl>
+        </section>
       </section>
+
+      <!-- FOOTER  -->
+      <section id="footer_wrap" class="outer">
+        <header class="inner">
+          <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+        </header>
+      </section>
+
+
     </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-
-
   </body>
 </html>
