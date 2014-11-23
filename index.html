@@ -21,26 +21,32 @@
       a {
         box-shadow: 0 0 10px rgba(0,0,0,.5);
       }
-
-      #forkme_banner a {
-          display: inline-block;
-          padding: 10px 10px 10px 10px;
-          position: static;
-          color: #fff;
-          font-weight: 700;
-          box-shadow: 0 0 10px rgba(0,0,0,.5);
-          border-bottom-left-radius: 2px;
-          border-bottom-right-radius: 2px;
-          overflow: hidden;
-          margin: 0;
-          margin-right: 8px;
+      @media print {
+        #forkme_banner a {
+          display: block;
+        }
       }
+      @media screen {
+        #forkme_banner a {
+            display: inline-block;
+            padding: 10px 10px 10px 10px;
+            position: static;
+            color: #fff;
+            font-weight: 700;
+            box-shadow: 0 0 10px rgba(0,0,0,.5);
+            border-bottom-left-radius: 2px;
+            border-bottom-right-radius: 2px;
+            overflow: hidden;
+            margin: 0;
+            margin-right: 8px;
+        }
 
-      #forkme_banner a.github-link:after {
-        background-size: inherit;
-        width: 32px;
-        height: 32px;
-        margin: -8px 0px -11px 10px;
+        #forkme_banner a.github-link:after {
+          background-size: inherit;
+          width: 32px;
+          height: 32px;
+          margin: -8px 0px -11px 10px;
+        }
       }
 
       #forkme_banner a:last-of-type {
@@ -59,16 +65,17 @@
           margin-top: 0;
         }
       }
-
-      a.github-link:after {
-        content: '';
-        background: url('../images/blacktocat.png') #4f628e no-repeat 50% 50%;
-        background-origin: border-box;
-        background-size: 16px;
-        display: inline-block;
-        width: 16px;
-        height: 22px;
-        margin: -2px -2px -6px 8px;
+      @media screen {
+        a.github-link:after {
+          content: '';
+          background: url('../images/blacktocat.png') #4f628e no-repeat 50% 50%;
+          background-origin: border-box;
+          background-size: 16px;
+          display: inline-block;
+          width: 16px;
+          height: 22px;
+          margin: -2px -2px -6px 8px;
+        }
       }
 
       .document {
@@ -89,6 +96,12 @@
           position: absolute;
           right: 26px;
           top: 0;
+        }
+      }
+
+      @media print {
+        #repos aside {
+          display: none;
         }
       }
 
@@ -130,8 +143,10 @@
         display: block;
       }
 
-      .project-name a.github-link {
-        display: none;
+      @media screen {
+        .project-name a.github-link {
+          display: none;
+        }
       }
 
       </style>
@@ -144,8 +159,8 @@
       <header>
         <h1 id="project_title">Benjamin West</h1>
         <div id="forkme_banner">
-          <a id="owner_cv" href="http://about.me/mrgenixus">About Me</a>
-          <a id="owner_cv" href="/cv-2014">Curriculumn Vitae</a>
+          <a href="http://about.me/mrgenixus">About Me</a>
+          <a data-href-prefix="http://mrgenixus.github.io/" id="owner_cv" href="cv-2014">Curriculumn Vitae</a>
           <a class="github-link" href="https://github.com/mrgenixus">View on GitHub</a>
         </div>
 
@@ -216,7 +231,7 @@
 
               </p>
               <p>
-                <a href="http://mrgenixus.github.io/working-with-iframe">Example</a>
+                <a data-href-prefix="http://mrgenixus.github.io/" href="working-with-iframe">Example</a>
               </p>
             </dd>
             <dt id="repo-desktop-information-manager" class="project-name">
@@ -235,7 +250,7 @@
             </dd>
             <dt id="repo-ajax-forms" class="project-name">
               <a href="#repo-ajax-forms">
-                Ajaidrms tiny implementation for working with forms/ajax
+                A tiny implementation for working with forms/ajax
               </a>
               <a class="github-link" href="http://github.com/mrgenixus/ajax-forms">ajax-forms</a>
             </dt>
@@ -247,7 +262,7 @@
                 Originally built to prove and idea this represents an example of how one might address submitting forms via AJAX as a general case
               </p>
               <p>
-                <a href="ajax-forms">More information...</a>
+                <a data-href-prefix="http://mrgenixus.github.io/" href="ajax-forms">More information...</a>
               </p>
             </dd>
             <dt id="repo-micro-modal" class="project-name">
@@ -264,7 +279,7 @@
                 This was originally a snippet to use the least possible code to create a modal.
               </p>
               <p>
-                <a href="micro-modal">More information...</a>
+                <a data-href-prefix="http://mrgenixus.github.io/" href="micro-modal">More information...</a>
               </p>
             </dd>
           </dl>
@@ -301,7 +316,7 @@
                 </ul>
               </p>
               <p>
-                <a href="foodie">More information...</a>
+                <a data-href-prefix="http://mrgenixus.github.io/" href="foodie">More information...</a>
               </p>
             </dd>
           </dl>
