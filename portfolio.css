@@ -100,7 +100,7 @@ dt {
 .document::before {
   height: 160px;
   width: 100%;
-  background: url("phx-park.jpg");
+  background: url("images/phx-park.jpg");
   background-size: cover;
   background-clip: content-box;
   background-repeat: no-repeat;
