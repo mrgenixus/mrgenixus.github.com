@@ -1,4 +1,4 @@
-/* http://paletton.com/#uid=33L0u0kfSqB6iHLaTvCl9lnqJfM */
+/* http://paletton.com/#uid=32J140kfSqB6iHLaTvCl9lnqJfM */
 
 padding-start(dimension)
   -webkit-padding-start dimension
@@ -12,26 +12,26 @@ padding-end(dimension)
   -o-padding-end dimension
   padding-end dimension
 
-color-yellow-regular     = #D4C26B
-color-yellow-light       = #FCEDA6
-color-yellow-extra-light = #FFF6CD
-color-yellow-dark        = #AA973A
-color-yellow-extra-dark  = #7E6C15
+color-purple-regular     = #6B4E90
+color-purple-light       = #8D76AB
+color-purple-extra-light = #B9A9CE
+color-purple-dark        = #4C2E73
+color-purple-extra-dark  = #311455
 
-color-blue-regular       = #4F628E
-color-blue-light         = #7585A9
-color-blue-extra-light   = #A8B3CC
-color-blue-dark          = #2F4372
-color-blue-extra-dark    = #152854
+color-green-regular       = #70B45B
+color-green-light         = #9FD68D
+color-green-extra-light   = #C5E8BA
+color-green-dark          = #489031
+color-green-extra-dark    = #276B12
 
-color-brown-regular      = #D49B6B
-color-brown-light        = #FCCDA6
-color-brown-extra-light  = #FFE4CD
-color-brown-dark         = #AA6D3A
-color-brown-extra-dark   = #7E4415
+color-brown-regular      = #D4B36B
+color-brown-light        = #FCE0A6
+color-brown-extra-light  = #FFEFCD
+color-brown-dark         = #AA873A
+color-brown-extra-dark   = #AA873A
 
 body
-  background-color color-brown-extra-dark
+  background-color color-purple-extra-dark
   font-family 'Open Sans', sans-serif
 
 #objective
@@ -51,7 +51,7 @@ a
   font-style italic
   color white
   display inline-block
-  background-color color-blue-regular
+  background-color color-green-regular
   padding .2em 8px
   margin 0.2em 0px
   border-radius 0px
@@ -59,7 +59,7 @@ a
   box-shadow: 0 0 10px rgba(0,0,0,.5);
 
   &:target
-    background-color color-brown-extra-dark
+    background-color color-purple-extra-dark
 
   @media print
     color black
@@ -80,7 +80,7 @@ a
     @media screen
       &::after
         content ''
-        background url('../images/blacktocat.png') color-blue-regular no-repeat 50% 50%
+        background url('../images/blacktocat.png') color-green-regular no-repeat 50% 50%
         background-origin border-box
         background-size 16px
         display inline-block
@@ -154,7 +154,7 @@ dt
         margin-left -248px
         border-top 1px solid black
       > section
-        border-left 1px solid color-blue-regular
+        border-left 1px solid color-green-regular
         > header
           position absolute
           left -248px
@@ -174,25 +174,25 @@ dt
     top 0
 
     a
-      background-color color-yellow-regular
+      background-color color-brown-regular
 
       &[href="#none"]
         display none
 
       &[href="#none"],
       &[href=""]
-        background-color color-yellow-extra-dark
+        background-color color-brown-extra-dark
 
 .detail-content aside a:target,
 #featured:target [name=featured],
 .detail-content:target [name=work]
-  background-color color-yellow-extra-dark
+  background-color color-brown-extra-dark
 
 #featured:target .detail-content aside a[href="#none"],
 .detail-content:target aside a[href="#none"],
 .detail-content:target aside a[href=""],
 #featured:target .detail-content aside a[href=""]
-  background-color color-yellow-regular !important
+  background-color color-brown-regular !important
 
 @media screen and (max-width: 575px)
   .detail-content aside a
@@ -216,7 +216,7 @@ dl.roles
     font-weight bold
     color white
     display inline-block
-    background-color color-blue-regular
+    background-color color-green-regular
     padding .2em 8px
     margin-bottom 0.2em
     position absolute
@@ -243,7 +243,7 @@ dl.roles
       font-style italic
       color white
       display block
-      background-color color-brown-extra-dark
+      background-color color-purple-dark
       padding 0.2em 8px
       display inline-block
       margin 0 0.8em
@@ -254,7 +254,7 @@ dl.roles
   .featured a::before
     font-style italic
     content ' Featured: '
-    color color-brown-extra-dark
+    color color-purple-dark
     font-variant small-caps
 
 .detail-content:target dd.project-details
@@ -284,8 +284,8 @@ ul.flat-list
     position relative
     padding-top 2.25em
     padding-bottom 1.5em
-    background-color color-yellow-regular
-    border 1px solid color-yellow-extra-dark
+    background-color color-brown-regular
+    border 1px solid color-brown-extra-dark
 
     &::before
       font-style italic
@@ -293,7 +293,7 @@ ul.flat-list
       font-style italic
       color white
       display block
-      background-color color-blue-regular
+      background-color color-green-regular
       padding .2em 8px
       position absolute
       left 0
@@ -353,7 +353,7 @@ dt.project-name
     box-shadow inherit
     @media screen
       &:hover
-        color color-blue-regular
+        color color-green-regular
         text-decoration underline
 
   &:target + dd.project-details
@@ -386,7 +386,7 @@ ul.references
     font-weight bold
     color white
     display inline-block
-    background-color color-yellow-extra-dark
+    background-color color-brown-extra-dark
     padding .2em 8px
     margin-bottom 0.2em
     position absolute
