@@ -35,7 +35,7 @@ a:target {
     color: #000;
   }
   a[href]:after {
-    content: " <" attr(data-href-prefix) attr(href) ">";
+    content: " <" attr(href) ">";
   }
   a[href=""]:after,
   a[href^="#"]:after,
@@ -312,20 +312,17 @@ ul.skills > ul > ul:before {
 ul.skills > ul > ul:after {
   content: "]";
 }
-dt.project-name a[href^="#"] {
+dt.project-name a {
   background: inherit;
   color: inherit;
   font-style: inherit;
   display: inherit;
   margin: inherit;
   padding: inherit;
-  box-shadow: inherit;
 }
-@media screen {
-  dt.project-name a:hover[href^="#"] {
-    color: #4f628e;
-    text-decoration: underline;
-  }
+dt.project-name a:hover {
+  color: #4f628e;
+  text-decoration: underline;
 }
 dt.project-name:target + dd.project-details {
   display: block;
