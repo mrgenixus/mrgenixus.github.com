@@ -171,7 +171,7 @@ dt {
 }
 .detail-content aside a:target,
 #featured:target [name=featured],
-.detail-content:target [name=work] {
+.detail-content:target .show-all {
   background-color: #7e6c15;
 }
 #featured:target .detail-content aside a[href="#none"],
