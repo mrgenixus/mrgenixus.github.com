@@ -36,7 +36,7 @@ body
 
 #objective
   display none
-  &::target
+  &:target
     display block
 
 @media screen and (min-width: 840px)
@@ -56,13 +56,15 @@ a
   margin 0.2em 0px
   border-radius 0px
 
-  &::target
+  box-shadow: 0 0 10px rgba(0,0,0,.5);
+
+  &:target
     background-color color-brown-extra-dark
 
   @media print
     color black
     &[href]::after
-      content " <" attr(href) ">"
+      content: " <" attr(data-href-prefix) attr(href) ">";
     &[href=""]::after,
     &[href^="#"]::after,
     &[href^="tel"]::after
@@ -145,17 +147,17 @@ dt
 
       &[href="#none"],
       &[href=""]
-        background-color color-yellow-extra-dark 
+        background-color color-yellow-extra-dark
 
-#work aside a::target,
-#featured::target [name=featured],
-#work::target [name=work]
+#work aside a:target,
+#featured:target [name=featured],
+#work:target [name=work]
   background-color color-yellow-extra-dark
 
-#featured::target #work aside a[href="#none"],
-#work::target aside a[href="#none"],
-#work::target aside a[href=""],
-#featured::target #work aside a[href=""]
+#featured:target #work aside a[href="#none"],
+#work:target aside a[href="#none"],
+#work:target aside a[href=""],
+#featured:target #work aside a[href=""]
   background-color color-yellow-regular !important
 
 @media screen and (max-width: 575px)
@@ -189,7 +191,7 @@ dl.roles
   .skills
     display block
 
-#featured::target .featured + dd.project-details
+#featured:target .featured + dd.project-details
   display block
 
 .featured + dd.product-details
@@ -197,9 +199,9 @@ dl.roles
 
 @media screen
 
-  #featured::target .featured a,
-  .project-name.featured::target a,
-  #work::target .featured a
+  #featured:target .featured a,
+  .project-name.featured:target a,
+  #work:target .featured a
     &::after
       font-style italic
       content 'Featured'
@@ -221,7 +223,7 @@ dl.roles
     color color-brown-extra-dark
     font-variant small-caps
 
-#work::target dd.project-details
+#work:target dd.project-details
   display block
 
 ul.skills
@@ -231,13 +233,13 @@ ul.skills
 
     &::before
       font-weight bold
-    
+
     li > ul
       width 0
       display inline-block
       height 0
       overflow hidden
-    
+
     li > ul
       margin-left -0.7em
 
@@ -297,19 +299,20 @@ ul.skills
       content "]"
 
 dt.project-name
-  a
+  a[href^="#"]
     background inherit
     color inherit
     font-style inherit
     display inherit
     margin inherit
     padding inherit
+    box-shadow inherit
+    @media screen
+      &:hover
+        color color-blue-regular
+        text-decoration underline
 
-  a:hover
-    color color-blue-regular
-    text-decoration underline
-
-  &::target + dd.project-details
+  &:target + dd.project-details
     display block
 
 @media screen
@@ -324,7 +327,7 @@ ul.references
 
   .name
     @media screen and (max-width: 575px)
-      display block 
+      display block
 
     @media screen and (min-width: 575px)
       width 248px
