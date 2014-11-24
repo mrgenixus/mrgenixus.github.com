@@ -15,7 +15,7 @@ gulp.task('html', function () {
 gulp.task('stylus', function () {
   gulp.src('cv-2014/main.styl')
     .pipe(stylus())
-    .pipe(gulp.dest('./cv2014'));
+    .pipe(gulp.dest('./cv-2014'));
 });
 
 gulp.task('watch', function () {
