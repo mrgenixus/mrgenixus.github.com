@@ -24,7 +24,12 @@ gulp.task('stylus', function () {
 
 gulp.task('watch', function () {
   gulp.watch(['*'], ['html']);
-  gulp.watch(['cv-2014/main.styl'], ['stylus']);
+  gulp.watch([
+    'forkme.styl',
+    'portfolio.style',
+    'main.style',
+    'cv-2014/main.styl'
+  ], ['stylus']);
 });
 
 gulp.task('default', ['connect', 'stylus', 'watch']);
