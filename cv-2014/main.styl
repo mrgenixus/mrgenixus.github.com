@@ -70,6 +70,37 @@ a
     &[href^="tel"]::after
       content ''
 
+  &.github-link
+    @media screen and (min-width: 575px)
+      position absolute
+      right 0
+      top 0
+      margin-top 0
+
+    @media screen
+      &::after
+        content ''
+        background url('../images/blacktocat.png') #4f628e no-repeat 50% 50%
+        background-origin border-box
+        background-size 16px
+        display inline-block
+        width 16px
+        height 22px
+        margin -2px -2px -6px 8px
+
+#featured:target .featured a.github-link,
+.project-name:target a.github-link,
+.detail-content:target .project-name a.github-link
+{
+  display: block;
+}
+
+@media screen {
+  .project-name a.github-link {
+    display: none;
+  }
+}
+
 p
   font-family Georgia, times
 
@@ -83,8 +114,11 @@ dd, section, header
 dt
   page-break-after avoid
 
-.resume
+.document
   background-color white
+  overflow hidden
+
+  box-shadow: 0 0 10px rgba(0,0,0,.4);
 
   &::before
     height 160px
@@ -123,7 +157,7 @@ dt
         border-left 1px solid color-blue-regular
         > header
           position absolute
-          left -248
+          left -248px
           width 248px
 
   @media print
@@ -131,12 +165,12 @@ dt
     > section > header
       text-align right
 
-#work
+.detail-content
   position relative
 
   aside
     position absolute
-    right 26
+    right 26px
     top 0
 
     a
@@ -149,26 +183,26 @@ dt
       &[href=""]
         background-color color-yellow-extra-dark
 
-#work aside a:target,
+.detail-content aside a:target,
 #featured:target [name=featured],
-#work:target [name=work]
+.detail-content:target [name=work]
   background-color color-yellow-extra-dark
 
-#featured:target #work aside a[href="#none"],
-#work:target aside a[href="#none"],
-#work:target aside a[href=""],
-#featured:target #work aside a[href=""]
+#featured:target .detail-content aside a[href="#none"],
+.detail-content:target aside a[href="#none"],
+.detail-content:target aside a[href=""],
+#featured:target .detail-content aside a[href=""]
   background-color color-yellow-regular !important
 
 @media screen and (max-width: 575px)
-  #work aside a
+  .detail-content aside a
     display none
 
-  #work aside a[href="#none"]
+  .detail-content aside a[href="#none"]
     display inline-block
 
 @media print
-  #work aside
+  .detail-content aside
     display none
 
 dl.projects,
@@ -188,7 +222,7 @@ dl.roles
     position absolute
     right 0
 
-  .skills
+  .flat-list
     display block
 
 #featured:target .featured + dd.project-details
@@ -201,7 +235,7 @@ dl.roles
 
   #featured:target .featured a,
   .project-name.featured:target a,
-  #work:target .featured a
+  .detail-content:target .featured a
     &::after
       font-style italic
       content 'Featured'
@@ -223,10 +257,10 @@ dl.roles
     color color-brown-extra-dark
     font-variant small-caps
 
-#work:target dd.project-details
+.detail-content:target dd.project-details
   display block
 
-ul.skills
+ul.flat-list
   @media screen and (max-width: 575px), print
     padding-start(0px)
     padding-end(0px)
@@ -265,9 +299,6 @@ ul.skills
       left 0
       top 0
 
-  &::before
-    content 'Skills:'
-
   li
     display inline
     font-family 'Monserrat', Verdana, Geneva, sans-serif
@@ -298,7 +329,20 @@ ul.skills
     &::after
       content "]"
 
+  &.technologies::before
+    content: 'Technologies'
+
+  &.skills
+    &::before
+      content 'Skills:'
+
+    &.technologies::before
+      content 'Skills and Technologies:'
+
+
 dt.project-name
+  position:relative
+
   a[href^="#"]
     background inherit
     color inherit

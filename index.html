@@ -54,108 +54,12 @@
         margin-right: 0;
       }
 
-      ul.technologies:before {
-        content: 'Technologies:';
-      }
-
-      @media screen and (min-width: 575px) {
-        a.github-link {
-          position:absolute;
-          right: 0;
-          top: 0;
-          margin-top: 0;
-        }
-      }
-      @media screen {
-        a.github-link:after {
-          content: '';
-          background: url('../images/blacktocat.png') #4f628e no-repeat 50% 50%;
-          background-origin: border-box;
-          background-size: 16px;
-          display: inline-block;
-          width: 16px;
-          height: 22px;
-          margin: -2px -2px -6px 8px;
-        }
-      }
-
-      .document {
-        overflow: hidden;
-      }
-
-      /* remove this stop-gap style */
-      .resume > section > section > header {
-        left: -248px;
-      }
-
-      #repos:target dd.project-details {
-        display: block;
-      }
-
-      @media screen and (min-width: 575px) {
-        #repos aside {
-          position: absolute;
-          right: 26px;
-          top: 0;
-        }
-      }
-
-      @media print {
-        #repos aside {
-          display: none;
-        }
-      }
-
-      #repos aside a {
-        background-color: #d4c26a;
-      }
-
-      #repos aside a:target,
-      #featured:target [name=featured],
-      #repos:target [name=repos] {
-        background-color: #7e6c15;
-      }
-      #repos aside a[href="#none"] {
-        display: none;
-      }
-      #repos aside a[href="#none"],
-      #repos aside a[href=""] {
-        background-color: #7e6c15;
-      }
-
-      #featured:target #repos aside a[href="#none"],
-      #repos:target aside a[href="#none"],
-      #repos:target aside a[href=""],
-      #featured:target #repos aside a[href=""] {
-        background-color: #d4c26a !important;
-      }
-
-      dt.project-name {
-        position: relative;
-      }
-
-      .document {
-        box-shadow: 0 0 10px rgba(0,0,0,.4);
-      }
-
-      #featured:target .featured a.github-link,
-      .project-name:target a.github-link,
-      #repos:target .project-name a.github-link {
-        display: block;
-      }
-
-      @media screen {
-        .project-name a.github-link {
-          display: none;
-        }
-      }
-
       </style>
     <title>@mrgenxius</title>
   </head>
 
   <body>
-    <div class="resume document" id="featured">
+    <div class="portfolio document" id="featured">
       <!-- HEADER -->
       <header>
         <h1 id="project_title">Benjamin West</h1>
@@ -168,7 +72,7 @@
       </header>
 
       <!-- MAIN CONTENT -->
-      <section id="repos" class="inner">
+      <section id="repos" class="inner detail-content">
         <header>
           <h2>Github Projects</h2>
           <aside>
@@ -192,7 +96,7 @@
               <a class="github-link" href="http://github.com/mrgenixus/namespace-info">namepace-info</a>
             </dt>
             <dd class="project-details">
-              <ul class="skills technologies">
+              <ul class="technologies flat-list">
                 <li>Javascript</li>
                 <li>Markdown</li>
               </ul>
@@ -205,7 +109,7 @@
               <a class="github-link" href="http://github.com/mrgenixus/sc-proposal">sc-proposal</a>
             </dt>
             <dd class="project-details">
-              <ul class="skills technologies">
+              <ul class="flat-list technologies">
                 <li>Javascript</li>
                 <li>HTML 4</li>
                 <li>CSS (Pre CSS2)</li>
@@ -219,7 +123,7 @@
               <a class="github-link" href="http://github.com/mrgenixus/working-with-iframe">working-with-iframe</a>
             </dt>
             <dd class="project-details">
-              <ul class="skills technologies">
+              <ul class="technologies flat-list">
                 <li>Javascript</li>
                 <li>CORS</li>
                 <li>Same-domain-policy</li>
@@ -240,7 +144,7 @@
               <a class="github-link" href="http://github.com/mrgenixus/desktop-information-manager">desktop-information-manager</a>
             </dt>
             <dd class="project-details">
-              <ul class="skills technologies">
+              <ul class="technologies flat-list">
                 <li>Javascript</li>
                 <li>Windows Active Desktop</li>
               </ul>
@@ -256,7 +160,7 @@
               <a class="github-link" href="http://github.com/mrgenixus/ajax-forms">ajax-forms</a>
             </dt>
             <dd class="project-details">
-              <ul class="skills technologies">
+              <ul class="technologies flat-list">
                 <li>Javascript</li>
               </ul>
               <p>
@@ -273,7 +177,7 @@
               <a class="github-link" href="http://github.com/mrgenixus/micro-modal">micro-modal</a>
             </dt>
             <dd class="project-details">
-              <ul class="skills technologies">
+              <ul class="technologies flat-list">
                 <li>Javascript</li>
               </ul>
               <p>
@@ -297,7 +201,7 @@
               <a class="github-link" href="http://github.com/mrgenixus/foodie">foodie</a>
             </dt>
             <dd class="project-details">
-              <ul class="skills technologies">
+              <ul class="technologies flat-list">
                 <li>Javascript</li>
                 <li>Rails</li>
                 <li>Heroku</li>
