@@ -13,14 +13,14 @@ gulp.task('html', function () {
 });
 
 gulp.task('stylus', function () {
-  gulp.src('main.styl')
+  gulp.src('cv-2014/main.styl')
     .pipe(stylus())
-    .pipe(gulp.dest('.'));
+    .pipe(gulp.dest('./cv2014'));
 });
 
 gulp.task('watch', function () {
   gulp.watch(['*'], ['html']);
-  gulp.watch(['main.styl'], ['stylus']);
+  gulp.watch(['cv-2014/main.styl'], ['stylus']);
 });
 
 gulp.task('default', ['connect', 'stylus', 'watch']);
