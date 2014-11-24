@@ -13,12 +13,11 @@ gulp.task('html', function () {
 });
 
 gulp.task('stylus', function () {
-  gulp.src('main.styl')
+  gulp.src('portfolio.styl')
     .pipe(stylus())
-    .pipe(gulp.dest('./cv-2014'))
     .pipe(gulp.dest('.'));
 
-  gulp.src('main.styl')
+  gulp.src('cv-2014/main.styl')
     .pipe(stylus())
     .pipe(gulp.dest('./cv-2014'));
 });
