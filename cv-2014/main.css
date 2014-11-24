@@ -6,7 +6,7 @@ body {
 #objective {
   display: none;
 }
-#objective::target {
+#objective:target {
   display: block;
 }
 @media screen and (min-width: 840px) {
@@ -26,8 +26,9 @@ a {
   padding: 0.2em 8px;
   margin: 0.2em 0px;
   border-radius: 0px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
-a::target {
+a:target {
   background-color: #7e4415;
 }
 @media print {
@@ -35,7 +36,7 @@ a::target {
     color: #000;
   }
   a[href]::after {
-    content: " <" attr(href) ">";
+    content: " <" attr(data-href-prefix) attr(href) ">";
   }
   a[href=""]::after,
   a[href^="#"]::after,
@@ -137,15 +138,15 @@ dt {
 #work aside a[href=""] {
   background-color: #7e6c15;
 }
-#work aside a::target,
-#featured::target [name=featured],
-#work::target [name=work] {
+#work aside a:target,
+#featured:target [name=featured],
+#work:target [name=work] {
   background-color: #7e6c15;
 }
-#featured::target #work aside a[href="#none"],
-#work::target aside a[href="#none"],
-#work::target aside a[href=""],
-#featured::target #work aside a[href=""] {
+#featured:target #work aside a[href="#none"],
+#work:target aside a[href="#none"],
+#work:target aside a[href=""],
+#featured:target #work aside a[href=""] {
   background-color: #d4c26b !important;
 }
 @media screen and (max-width: 575px) {
@@ -181,16 +182,16 @@ dl.roles {
     display: block;
   }
 }
-#featured::target .featured + dd.project-details {
+#featured:target .featured + dd.project-details {
   display: block;
 }
 .featured + dd.product-details {
   position: relative;
 }
 @media screen {
-  #featured::target .featured a::after,
-  .project-name.featured::target a::after,
-  #work::target .featured a::after {
+  #featured:target .featured a::after,
+  .project-name.featured:target a::after,
+  #work:target .featured a::after {
     font-style: italic;
     content: 'Featured';
     text-decoration: none;
@@ -202,9 +203,9 @@ dl.roles {
     display: inline-block;
     margin: 0 0.8em;
   }
-  #featured::target .featured a::before,
-  .project-name.featured::target a::before,
-  #work::target .featured a::before {
+  #featured:target .featured a::before,
+  .project-name.featured:target a::before,
+  #work:target .featured a::before {
     content: '';
   }
   .featured a::before {
@@ -214,7 +215,7 @@ dl.roles {
     font-variant: small-caps;
   }
 }
-#work::target dd.project-details {
+#work:target dd.project-details {
   display: block;
 }
 @media screen and (max-width: 575px), print {
@@ -312,19 +313,22 @@ ul.skills > ul > ul::before {
 ul.skills > ul > ul::after {
   content: "]";
 }
-dt.project-name a {
+dt.project-name a[href^="#"] {
   background: inherit;
   color: inherit;
   font-style: inherit;
   display: inherit;
   margin: inherit;
   padding: inherit;
+  box-shadow: inherit;
 }
-dt.project-name a:hover {
-  color: #4f628e;
-  text-decoration: underline;
+@media screen {
+  dt.project-name a[href^="#"]:hover {
+    color: #4f628e;
+    text-decoration: underline;
+  }
 }
-dt.project-name::target + dd.project-details {
+dt.project-name:target + dd.project-details {
   display: block;
 }
 @media screen {
