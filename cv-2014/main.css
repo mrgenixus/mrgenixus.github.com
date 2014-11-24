@@ -128,7 +128,7 @@ dt {
   top: 0;
 }
 #work aside a {
-  background-color: #d4c26a;
+  background-color: #d4c26b;
 }
 #work aside a[href="#none"] {
   display: none;
@@ -146,7 +146,7 @@ dt {
 #work:target aside a[href="#none"],
 #work:target aside a[href=""],
 #featured:target #work aside a[href=""] {
-  background-color: #d4c26a !important;
+  background-color: #d4c26b !important;
 }
 @media screen and (max-width: 575px) {
   #work aside a {
@@ -254,7 +254,7 @@ dl.roles {
     position: relative;
     padding-top: 2.25em;
     padding-bottom: 1.5em;
-    background-color: #d4c26a;
+    background-color: #d4c26b;
     border: 1px solid #7e6c15;
   }
   ul.skills:before {
