@@ -13,9 +13,10 @@ gulp.task('html', function () {
 });
 
 gulp.task('stylus', function () {
-  gulp.src('cv-2014/main.styl')
+  gulp.src('main.styl')
     .pipe(stylus())
-    .pipe(gulp.dest('./cv-2014'));
+    .pipe(gulp.dest('./cv-2014'))
+    .pipe(gulp.dest('.'));
 
   gulp.src('main.styl')
     .pipe(stylus())
