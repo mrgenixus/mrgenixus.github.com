@@ -44,6 +44,36 @@ a:target {
     content: '';
   }
 }
+@media screen and (min-width: 575px) {
+  a.github-link {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0;
+  }
+}
+@media screen {
+  a.github-link::after {
+    content: '';
+    background: url("../images/blacktocat.png") #4f628e no-repeat 50% 50%;
+    background-origin: border-box;
+    background-size: 16px;
+    display: inline-block;
+    width: 16px;
+    height: 22px;
+    margin: -2px -2px -6px 8px;
+  }
+}
+#featured:target .featured a.github-link,
+.project-name:target a.github-link,
+.detail-content:target .project-name a.github-link {
+  display: block;
+}
+@media screen {
+  .project-name a.github-link {
+    display: none;
+  }
+}
 p {
   font-family: Georgia, times;
 }
@@ -63,10 +93,12 @@ header {
 dt {
   page-break-after: avoid;
 }
-.resume {
+.document {
   background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
-.resume::before {
+.document::before {
   height: 160px;
   width: 100%;
   background: url("phx-park.jpg");
@@ -76,89 +108,89 @@ dt {
   display: block;
   content: '';
 }
-.resume > header,
-.resume > section {
+.document > header,
+.document > section {
   padding: 0 26px;
   position: relative;
 }
-.resume > section > section {
+.document > section > section {
   position: relative;
   padding-left: 26px;
 }
 @media screen and (min-width: 1034px) {
-  .resume {
+  .document {
     width: 940px;
     margin-left: 5%;
   }
 }
 @media screen and (min-width: 840px) {
-  .resume {
+  .document {
     background-color: rgba(255,255,255,0.8);
   }
-  .resume::before {
+  .document::before {
     height: 0px;
   }
-  .resume > section {
+  .document > section {
     margin-left: 248px;
   }
-  .resume > section > header {
+  .document > section > header {
     margin-left: -248px;
     border-top: 1px solid #000;
   }
-  .resume > section > section {
+  .document > section > section {
     border-left: 1px solid #4f628e;
   }
-  .resume > section > section > header {
+  .document > section > section > header {
     position: absolute;
-    left: -248;
+    left: -248px;
     width: 248px;
   }
 }
 @media print {
-  .resume > header,
-  .resume > section > header {
+  .document > header,
+  .document > section > header {
     text-align: right;
   }
 }
-#work {
+.detail-content {
   position: relative;
 }
-#work aside {
+.detail-content aside {
   position: absolute;
-  right: 26;
+  right: 26px;
   top: 0;
 }
-#work aside a {
+.detail-content aside a {
   background-color: #d4c26b;
 }
-#work aside a[href="#none"] {
+.detail-content aside a[href="#none"] {
   display: none;
 }
-#work aside a[href="#none"],
-#work aside a[href=""] {
+.detail-content aside a[href="#none"],
+.detail-content aside a[href=""] {
   background-color: #7e6c15;
 }
-#work aside a:target,
+.detail-content aside a:target,
 #featured:target [name=featured],
-#work:target [name=work] {
+.detail-content:target [name=work] {
   background-color: #7e6c15;
 }
-#featured:target #work aside a[href="#none"],
-#work:target aside a[href="#none"],
-#work:target aside a[href=""],
-#featured:target #work aside a[href=""] {
+#featured:target .detail-content aside a[href="#none"],
+.detail-content:target aside a[href="#none"],
+.detail-content:target aside a[href=""],
+#featured:target .detail-content aside a[href=""] {
   background-color: #d4c26b !important;
 }
 @media screen and (max-width: 575px) {
-  #work aside a {
+  .detail-content aside a {
     display: none;
   }
-  #work aside a[href="#none"] {
+  .detail-content aside a[href="#none"] {
     display: inline-block;
   }
 }
 @media print {
-  #work aside {
+  .detail-content aside {
     display: none;
   }
 }
@@ -178,7 +210,7 @@ dl.roles {
     position: absolute;
     right: 0;
   }
-  .skills {
+  .flat-list {
     display: block;
   }
 }
@@ -191,7 +223,7 @@ dl.roles {
 @media screen {
   #featured:target .featured a::after,
   .project-name.featured:target a::after,
-  #work:target .featured a::after {
+  .detail-content:target .featured a::after {
     font-style: italic;
     content: 'Featured';
     text-decoration: none;
@@ -205,7 +237,7 @@ dl.roles {
   }
   #featured:target .featured a::before,
   .project-name.featured:target a::before,
-  #work:target .featured a::before {
+  .detail-content:target .featured a::before {
     content: '';
   }
   .featured a::before {
@@ -215,11 +247,11 @@ dl.roles {
     font-variant: small-caps;
   }
 }
-#work:target dd.project-details {
+.detail-content:target dd.project-details {
   display: block;
 }
 @media screen and (max-width: 575px), print {
-  ul.skills {
+  ul.flat-list {
     -webkit-padding-start: 0px;
     -moz-padding-start: 0px;
     -o-padding-start: 0px;
@@ -229,21 +261,21 @@ dl.roles {
     -o-padding-end: 0px;
     padding-end: 0px;
   }
-  ul.skills::before {
+  ul.flat-list::before {
     font-weight: bold;
   }
-  ul.skills li > ul {
+  ul.flat-list li > ul {
     width: 0;
     display: inline-block;
     height: 0;
     overflow: hidden;
   }
-  ul.skills li > ul {
+  ul.flat-list li > ul {
     margin-left: -0.7em;
   }
 }
 @media screen and (min-width: 575px) {
-  ul.skills {
+  ul.flat-list {
     -webkit-padding-start: 40px;
     -moz-padding-start: 40px;
     -o-padding-start: 40px;
@@ -258,7 +290,7 @@ dl.roles {
     background-color: #d4c26b;
     border: 1px solid #7e6c15;
   }
-  ul.skills::before {
+  ul.flat-list::before {
     font-style: italic;
     text-decoration: none;
     font-style: italic;
@@ -271,26 +303,23 @@ dl.roles {
     top: 0;
   }
 }
-ul.skills::before {
-  content: 'Skills:';
-}
-ul.skills li {
+ul.flat-list li {
   display: inline;
   font-family: 'Monserrat', Verdana, Geneva, sans-serif;
 }
-ul.skills li:last-of-type::before {
+ul.flat-list li:last-of-type::before {
   content: 'and ';
 }
-ul.skills li:first-of-type::before {
+ul.flat-list li:first-of-type::before {
   content: '';
 }
-ul.skills li:last-of-type::after {
+ul.flat-list li:last-of-type::after {
   content: '';
 }
-ul.skills li::after {
+ul.flat-list li::after {
   content: ',';
 }
-ul.skills ul {
+ul.flat-list ul {
   display: inline-block;
   -webkit-padding-start: 0;
   -moz-padding-start: 0;
@@ -301,17 +330,29 @@ ul.skills ul {
   -o-padding-end: 0;
   padding-end: 0;
 }
-ul.skills ul::before {
+ul.flat-list ul::before {
   content: "(";
 }
-ul.skills ul::after {
+ul.flat-list ul::after {
   content: ")";
 }
-ul.skills > ul > ul::before {
+ul.flat-list > ul > ul::before {
   content: "[";
 }
-ul.skills > ul > ul::after {
+ul.flat-list > ul > ul::after {
   content: "]";
+}
+ul.flat-list.technologies::before {
+  content: 'Technologies';
+}
+ul.flat-list.skills::before {
+  content: 'Skills:';
+}
+ul.flat-list.skills.technologies::before {
+  content: 'Skills and Technologies:';
+}
+dt.project-name {
+  position: relative;
 }
 dt.project-name a[href^="#"] {
   background: inherit;
