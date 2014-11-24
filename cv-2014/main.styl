@@ -12,8 +12,26 @@ padding-end(dimension)
   -o-padding-end dimension
   padding-end dimension
 
+$color-yellow-regular     = #D4C26B
+$color-yellow-light       = #FCEDA6
+$color-yellow-extra-light = #FFF6CD
+$color-yellow-dark        = #AA973A
+$color-yellow-extra-dark  = #7E6C15
+
+$color-blue-regular       = #4F628E
+$color-blue-light         = #7585A9
+$color-blue-extra-light   = #A8B3CC
+$color-blue-dark          = #2F4372
+$color-blue-extra-dark    = #152854
+
+$color-brown-regular      = #D49B6B
+$color-brown-light        = #FCCDA6
+$color-brown-extra-light  = #FFE4CD
+$color-brown-dark         = #AA6D3A
+$color-brown-extra-dark   = #7E4415
+
 body
-  background-color #7E4415
+  background-color $color-brown-extra-dark
   font-family 'Open Sans', sans-serif
 
 #objective
@@ -33,13 +51,13 @@ a
   font-style italic
   color white
   display inline-block
-  background-color #4F628E
+  background-color $color-blue-regular
   padding .2em 8px
   margin 0.2em 0px
   border-radius 0px
 
   &:target
-    background-color #7E4415
+    background-color $color-brown-extra-dark
 
   @media print
     color black
@@ -100,7 +118,7 @@ dt
         margin-left -248px
         border-top 1px solid black
       > section
-        border-left 1px solid #4F628E
+        border-left 1px solid $color-blue-regular
         > header
           position absolute
           left -248
@@ -120,25 +138,25 @@ dt
     top 0
 
     a
-      background-color #D4C26A
+      background-color $color-yellow-regular
 
       &[href="#none"]
         display none
 
       &[href="#none"],
       &[href=""]
-        background-color #7E6C15 
+        background-color $color-yellow-extra-dark 
 
 #work aside a:target,
 #featured:target [name=featured],
 #work:target [name=work]
-  background-color #7E6C15
+  background-color $color-yellow-extra-dark
 
 #featured:target #work aside a[href="#none"],
 #work:target aside a[href="#none"],
 #work:target aside a[href=""],
 #featured:target #work aside a[href=""]
-  background-color #D4C26A !important
+  background-color $color-yellow-regular !important
 
 @media screen and (max-width: 575px)
   #work aside a
@@ -162,7 +180,7 @@ dl.roles
     font-weight bold
     color white
     display inline-block
-    background-color #4F628E
+    background-color $color-blue-regular
     padding .2em 8px
     margin-bottom 0.2em
     position absolute
@@ -189,7 +207,7 @@ dl.roles
       font-style italic
       color white
       display block
-      background-color #7E4415
+      background-color $color-brown-extra-dark
       padding 0.2em 8px
       display inline-block
       margin 0 0.8em
@@ -200,7 +218,7 @@ dl.roles
   .featured a:before
     font-style italic
     content ' Featured: '
-    color #7E4415
+    color $color-brown-extra-dark
     font-variant small-caps
 
 #work:target dd.project-details
@@ -230,8 +248,8 @@ ul.skills
     position relative
     padding-top 2.25em
     padding-bottom 1.5em
-    background-color #D4C26A
-    border 1px solid #7E6C15
+    background-color $color-yellow-regular
+    border 1px solid $color-yellow-extra-dark
 
     &:before
       font-style italic
@@ -239,7 +257,7 @@ ul.skills
       font-style italic
       color white
       display block
-      background-color #4F628E
+      background-color $color-blue-regular
       padding .2em 8px
       position absolute
       left 0
@@ -288,7 +306,7 @@ dt.project-name
     padding inherit
 
   a:hover
-    color #4F628E
+    color $color-blue-regular
     text-decoration underline
 
   &:target + dd.project-details
@@ -321,7 +339,7 @@ ul.references
     font-weight bold
     color white
     display inline-block
-    background-color #7E6C15
+    background-color $color-yellow-extra-dark
     padding .2em 8px
     margin-bottom 0.2em
     position absolute
