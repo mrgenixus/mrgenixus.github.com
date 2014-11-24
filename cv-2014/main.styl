@@ -36,7 +36,7 @@ body
 
 #objective
   display none
-  &:target
+  &::target
     display block
 
 @media screen and (min-width: 840px)
@@ -56,16 +56,16 @@ a
   margin 0.2em 0px
   border-radius 0px
 
-  &:target
+  &::target
     background-color color-brown-extra-dark
 
   @media print
     color black
-    &[href]:after
+    &[href]::after
       content " <" attr(href) ">"
-    &[href=""]:after,
-    &[href^="#"]:after,
-    &[href^="tel"]:after
+    &[href=""]::after,
+    &[href^="#"]::after,
+    &[href^="tel"]::after
       content ''
 
 p
@@ -84,7 +84,7 @@ dt
 .resume
   background-color white
 
-  &:before
+  &::before
     height 160px
     width 100%
     background url(phx-park.jpg)
@@ -109,7 +109,7 @@ dt
 
   @media screen and (min-width: 840px)
     background-color rgba(255,255,255,.8)
-    &:before
+    &::before
       height 0px
 
     > section
@@ -147,15 +147,15 @@ dt
       &[href=""]
         background-color color-yellow-extra-dark 
 
-#work aside a:target,
-#featured:target [name=featured],
-#work:target [name=work]
+#work aside a::target,
+#featured::target [name=featured],
+#work::target [name=work]
   background-color color-yellow-extra-dark
 
-#featured:target #work aside a[href="#none"],
-#work:target aside a[href="#none"],
-#work:target aside a[href=""],
-#featured:target #work aside a[href=""]
+#featured::target #work aside a[href="#none"],
+#work::target aside a[href="#none"],
+#work::target aside a[href=""],
+#featured::target #work aside a[href=""]
   background-color color-yellow-regular !important
 
 @media screen and (max-width: 575px)
@@ -175,7 +175,7 @@ dl.roles
 
 @media screen and (min-width: 575px)
 
-  dl.projects.roles:before
+  dl.projects.roles::before
     content "Projects / Roles"
     font-weight bold
     color white
@@ -189,7 +189,7 @@ dl.roles
   .skills
     display block
 
-#featured:target .featured + dd.project-details
+#featured::target .featured + dd.project-details
   display block
 
 .featured + dd.product-details
@@ -197,10 +197,10 @@ dl.roles
 
 @media screen
 
-  #featured:target .featured a,
-  .project-name.featured:target a,
-  #work:target .featured a
-    &:after
+  #featured::target .featured a,
+  .project-name.featured::target a,
+  #work::target .featured a
+    &::after
       font-style italic
       content 'Featured'
       text-decoration none
@@ -212,16 +212,16 @@ dl.roles
       display inline-block
       margin 0 0.8em
 
-    &:before
+    &::before
       content ''
 
-  .featured a:before
+  .featured a::before
     font-style italic
     content ' Featured: '
     color color-brown-extra-dark
     font-variant small-caps
 
-#work:target dd.project-details
+#work::target dd.project-details
   display block
 
 ul.skills
@@ -229,7 +229,7 @@ ul.skills
     padding-start(0px)
     padding-end(0px)
 
-    &:before
+    &::before
       font-weight bold
     
     li > ul
@@ -251,7 +251,7 @@ ul.skills
     background-color color-yellow-regular
     border 1px solid color-yellow-extra-dark
 
-    &:before
+    &::before
       font-style italic
       text-decoration none
       font-style italic
@@ -263,37 +263,37 @@ ul.skills
       left 0
       top 0
 
-  &:before
+  &::before
     content 'Skills:'
 
   li
     display inline
     font-family 'Monserrat', Verdana, Geneva, sans-serif
-    &:last-of-type:before
+    &:last-of-type::before
       content 'and '
 
-    &:first-of-type:before
+    &:first-of-type::before
       content ''
 
-    &:last-of-type:after
+    &:last-of-type::after
       content ''
 
-    &:after
+    &::after
       content ','
 
   ul
     display inline-block
     padding-start(0)
     padding-end(0)
-    &:before
+    &::before
       content "("
-    &:after
+    &::after
       content ")"
 
   > ul > ul
-    &:before
+    &::before
       content "["
-    &:after
+    &::after
       content "]"
 
 dt.project-name
@@ -309,7 +309,7 @@ dt.project-name
     color color-blue-regular
     text-decoration underline
 
-  &:target + dd.project-details
+  &::target + dd.project-details
     display block
 
 @media screen
@@ -334,7 +334,7 @@ ul.references
     font-style none
     font-family Georgia, times
 
-  &:before
+  &::before
     content "Please Contact:"
     font-weight bold
     color white

@@ -6,7 +6,7 @@ body {
 #objective {
   display: none;
 }
-#objective:target {
+#objective::target {
   display: block;
 }
 @media screen and (min-width: 840px) {
@@ -27,19 +27,19 @@ a {
   margin: 0.2em 0px;
   border-radius: 0px;
 }
-a:target {
+a::target {
   background-color: #7e4415;
 }
 @media print {
   a {
     color: #000;
   }
-  a[href]:after {
+  a[href]::after {
     content: " <" attr(href) ">";
   }
-  a[href=""]:after,
-  a[href^="#"]:after,
-  a[href^="tel"]:after {
+  a[href=""]::after,
+  a[href^="#"]::after,
+  a[href^="tel"]::after {
     content: '';
   }
 }
@@ -65,7 +65,7 @@ dt {
 .resume {
   background-color: #fff;
 }
-.resume:before {
+.resume::before {
   height: 160px;
   width: 100%;
   background: url("phx-park.jpg");
@@ -94,7 +94,7 @@ dt {
   .resume {
     background-color: rgba(255,255,255,0.8);
   }
-  .resume:before {
+  .resume::before {
     height: 0px;
   }
   .resume > section {
@@ -137,15 +137,15 @@ dt {
 #work aside a[href=""] {
   background-color: #7e6c15;
 }
-#work aside a:target,
-#featured:target [name=featured],
-#work:target [name=work] {
+#work aside a::target,
+#featured::target [name=featured],
+#work::target [name=work] {
   background-color: #7e6c15;
 }
-#featured:target #work aside a[href="#none"],
-#work:target aside a[href="#none"],
-#work:target aside a[href=""],
-#featured:target #work aside a[href=""] {
+#featured::target #work aside a[href="#none"],
+#work::target aside a[href="#none"],
+#work::target aside a[href=""],
+#featured::target #work aside a[href=""] {
   background-color: #d4c26b !important;
 }
 @media screen and (max-width: 575px) {
@@ -166,7 +166,7 @@ dl.roles {
   padding-top: 1.5em;
 }
 @media screen and (min-width: 575px) {
-  dl.projects.roles:before {
+  dl.projects.roles::before {
     content: "Projects / Roles";
     font-weight: bold;
     color: #fff;
@@ -181,16 +181,16 @@ dl.roles {
     display: block;
   }
 }
-#featured:target .featured + dd.project-details {
+#featured::target .featured + dd.project-details {
   display: block;
 }
 .featured + dd.product-details {
   position: relative;
 }
 @media screen {
-  #featured:target .featured a:after,
-  .project-name.featured:target a:after,
-  #work:target .featured a:after {
+  #featured::target .featured a::after,
+  .project-name.featured::target a::after,
+  #work::target .featured a::after {
     font-style: italic;
     content: 'Featured';
     text-decoration: none;
@@ -202,19 +202,19 @@ dl.roles {
     display: inline-block;
     margin: 0 0.8em;
   }
-  #featured:target .featured a:before,
-  .project-name.featured:target a:before,
-  #work:target .featured a:before {
+  #featured::target .featured a::before,
+  .project-name.featured::target a::before,
+  #work::target .featured a::before {
     content: '';
   }
-  .featured a:before {
+  .featured a::before {
     font-style: italic;
     content: ' Featured: ';
     color: #7e4415;
     font-variant: small-caps;
   }
 }
-#work:target dd.project-details {
+#work::target dd.project-details {
   display: block;
 }
 @media screen and (max-width: 575px), print {
@@ -228,7 +228,7 @@ dl.roles {
     -o-padding-end: 0px;
     padding-end: 0px;
   }
-  ul.skills:before {
+  ul.skills::before {
     font-weight: bold;
   }
   ul.skills li > ul {
@@ -257,7 +257,7 @@ dl.roles {
     background-color: #d4c26b;
     border: 1px solid #7e6c15;
   }
-  ul.skills:before {
+  ul.skills::before {
     font-style: italic;
     text-decoration: none;
     font-style: italic;
@@ -270,23 +270,23 @@ dl.roles {
     top: 0;
   }
 }
-ul.skills:before {
+ul.skills::before {
   content: 'Skills:';
 }
 ul.skills li {
   display: inline;
   font-family: 'Monserrat', Verdana, Geneva, sans-serif;
 }
-ul.skills li:last-of-type:before {
+ul.skills li:last-of-type::before {
   content: 'and ';
 }
-ul.skills li:first-of-type:before {
+ul.skills li:first-of-type::before {
   content: '';
 }
-ul.skills li:last-of-type:after {
+ul.skills li:last-of-type::after {
   content: '';
 }
-ul.skills li:after {
+ul.skills li::after {
   content: ',';
 }
 ul.skills ul {
@@ -300,16 +300,16 @@ ul.skills ul {
   -o-padding-end: 0;
   padding-end: 0;
 }
-ul.skills ul:before {
+ul.skills ul::before {
   content: "(";
 }
-ul.skills ul:after {
+ul.skills ul::after {
   content: ")";
 }
-ul.skills > ul > ul:before {
+ul.skills > ul > ul::before {
   content: "[";
 }
-ul.skills > ul > ul:after {
+ul.skills > ul > ul::after {
   content: "]";
 }
 dt.project-name a {
@@ -324,7 +324,7 @@ dt.project-name a:hover {
   color: #4f628e;
   text-decoration: underline;
 }
-dt.project-name:target + dd.project-details {
+dt.project-name::target + dd.project-details {
   display: block;
 }
 @media screen {
@@ -359,7 +359,7 @@ ul.references a {
   font-style: none;
   font-family: Georgia, times;
 }
-ul.references:before {
+ul.references::before {
   content: "Please Contact:";
   font-weight: bold;
   color: #fff;
