@@ -18,5 +18,5 @@ Usage
 ==========
 Starting the webserver on http://localhost:8080
 ```
-  grunt
+  gulp
 ```
