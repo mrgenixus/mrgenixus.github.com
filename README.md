@@ -5,7 +5,7 @@ This repository is published to http://mrgenixus.github.io
 Environment
 ===========
 ```
-  npm install -g grunt
+  npm install -g gulp
 ```
 
 Setup
