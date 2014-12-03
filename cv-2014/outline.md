@@ -1,4 +1,5 @@
 Benjamin West
+
 I. Contact Info
   A. Email: mrgenixus@gmail.com
   B. Github: http://github.com/mrgenixus
