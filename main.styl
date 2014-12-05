@@ -391,3 +391,49 @@ ul.references
     margin-bottom 0.2em
     position absolute
     top 0
+
+@media print
+  a
+    border 0
+
+  #featured:target .project-name:not(.featured)
+    display: none;
+
+    + .project-details
+      display none;
+
+  .project-details p
+    display none
+
+
+  input[type=checkbox]
+    display none !important
+
+    &:checked
+      + .project-name
+        display block !important
+
+        + .project-details
+          display block !important
+
+#pick:target
+  input[type=checkbox]
+    display inline-block
+    position relative
+    left -20px
+    margin-bottom -30px
+
+  @media print
+    .project-name
+      display: none;
+
+      + .project-details
+        display none;
+
+input[type=checkbox]
+  display none
+
+  &:checked
+    + .project-name + .project-details
+      display block
+
