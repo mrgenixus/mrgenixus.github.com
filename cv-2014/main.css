@@ -30,19 +30,6 @@ a {
 a:target {
   background-color: #7e4415;
 }
-@media print {
-  a {
-    color: #000;
-  }
-  a[href]::after {
-    content: " <" attr(data-href-prefix) attr(href) ">";
-  }
-  a[href=""]::after,
-  a[href^="#"]::after,
-  a[href^="tel"]::after {
-    content: '';
-  }
-}
 @media screen and (min-width: 575px) {
   a.github-link {
     position: absolute;
@@ -416,7 +403,8 @@ ul.references::before {
 }
 @media print {
   a {
-    border: 0;
+    border-size: 0px;
+    color: #000;
   }
   #featured:target .project-name:not(.featured) {
     display: none;

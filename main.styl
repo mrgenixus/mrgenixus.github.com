@@ -61,15 +61,6 @@ a
   &:target
     background-color color-brown-extra-dark
 
-  @media print
-    color black
-    &[href]::after
-      content: " <" attr(data-href-prefix) attr(href) ">";
-    &[href=""]::after,
-    &[href^="#"]::after,
-    &[href^="tel"]::after
-      content ''
-
   &.github-link
     @media screen and (min-width: 575px)
       position absolute
@@ -394,7 +385,9 @@ ul.references
 
 @media print
   a
-    border 0
+    border-size 0px
+    color black
+
 
   #featured:target .project-name:not(.featured)
     display: none;
