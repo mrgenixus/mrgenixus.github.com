@@ -27,7 +27,7 @@ gulp.task('watch', function () {
   gulp.watch([
     'forkme.styl',
     'portfolio.style',
-    'main.style',
+    'main.styl',
     'cv-2014/main.styl'
   ], ['stylus']);
 });
