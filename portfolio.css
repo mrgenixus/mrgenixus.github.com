@@ -72,12 +72,11 @@ h6 {
   -webkit-margin-after: 0;
 }
 dd,
-section,
 header {
   page-break-inside: avoid;
 }
-dt {
-  page-break-after: avoid;
+dd {
+  page-break-before: avoid;
 }
 .document {
   background-color: #fff;
@@ -130,12 +129,6 @@ dt {
     position: absolute;
     left: -248px;
     width: 248px;
-  }
-}
-@media print {
-  .document > header,
-  .document > section > header {
-    text-align: right;
   }
 }
 .detail-content {

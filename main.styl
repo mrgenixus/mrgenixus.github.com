@@ -99,11 +99,11 @@ h2, h3, h4, h5, h6
   -webkit-margin-before 0
   -webkit-margin-after 0
 
-dd, section, header
+dd, header
   page-break-inside avoid
 
-dt
-  page-break-after avoid
+dd
+  page-break-before avoid
 
 .document
   background-color white
@@ -150,11 +150,6 @@ dt
           position absolute
           left -248px
           width 248px
-
-  @media print
-    > header,
-    > section > header
-      text-align right
 
 .detail-content
   position relative
