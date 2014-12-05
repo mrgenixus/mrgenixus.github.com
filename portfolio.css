@@ -414,6 +414,49 @@ ul.references::before {
   position: absolute;
   top: 0;
 }
+@media print {
+  a {
+    border: 0;
+  }
+  #featured:target .project-name:not(.featured) {
+    display: none;
+  }
+  #featured:target .project-name:not(.featured) + .project-details {
+    display: none;
+  }
+  .project-details p {
+    display: none;
+  }
+  input[type=checkbox] {
+    display: none !important;
+  }
+  input[type=checkbox]:checked + .project-name {
+    display: block !important;
+  }
+  input[type=checkbox]:checked + .project-name + .project-details {
+    display: block !important;
+  }
+}
+#pick:target input[type=checkbox] {
+  display: inline-block;
+  position: relative;
+  left: -20px;
+  margin-bottom: -30px;
+}
+@media print {
+  #pick:target .project-name {
+    display: none;
+  }
+  #pick:target .project-name + .project-details {
+    display: none;
+  }
+}
+input[type=checkbox] {
+  display: none;
+}
+input[type=checkbox]:checked + .project-name + .project-details {
+  display: block;
+}
 @media screen and (min-width: 575px) {
   #forkme_banner {
     display: block;
