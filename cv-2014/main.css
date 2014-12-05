@@ -81,7 +81,11 @@ dd {
 .document {
   background-color: #fff;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+@media screen {
+  .document {
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  }
 }
 .document::before {
   height: 160px;
@@ -325,10 +329,10 @@ ul.flat-list.technologies::before {
   content: 'Technologies';
 }
 ul.flat-list.skills::before {
-  content: 'Skills:';
+  content: 'Skills: ';
 }
 ul.flat-list.skills.technologies::before {
-  content: 'Skills and Technologies:';
+  content: 'Skills and Technologies: ';
 }
 dt.project-name {
   position: relative;
@@ -394,16 +398,37 @@ ul.references::before {
   position: absolute;
   top: 0;
 }
+.print-only {
+  display: none;
+}
 @media print {
+  body {
+    font-size: 75%;
+  }
+  .no-print {
+    display: none;
+  }
+  .print-only {
+    display: inline;
+  }
+  section {
+    border-size: 0px;
+  }
   a {
     border-size: 0px;
     color: #000;
   }
-  #featured:target .project-name:not(.featured) {
+  .project-details {
     display: none;
   }
-  #featured:target .project-name:not(.featured) + .project-details {
+  #featured:target .project-name {
     display: none;
+  }
+  #featured:target .project-name.featured {
+    display: block;
+  }
+  #featured:target .project-name.featured + .project-details {
+    display: block;
   }
   .project-details p {
     display: none;

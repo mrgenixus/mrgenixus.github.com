@@ -109,7 +109,8 @@ dd
   background-color white
   overflow hidden
 
-  box-shadow: 0 0 10px rgba(0,0,0,.4);
+  @media screen
+    box-shadow: 0 0 10px rgba(0,0,0,.4);
 
   &::before
     height 160px
@@ -320,10 +321,10 @@ ul.flat-list
 
   &.skills
     &::before
-      content 'Skills:'
+      content 'Skills: '
 
     &.technologies::before
-      content 'Skills and Technologies:'
+      content 'Skills and Technologies: '
 
 
 dt.project-name
@@ -378,17 +379,37 @@ ul.references
     position absolute
     top 0
 
+.print-only
+  display none
+
 @media print
+  body
+    font-size: 75%
+  .no-print
+    display none
+
+  .print-only
+    display inline
+
+  section
+    border-size 0px
+
   a
     border-size 0px
     color black
 
+  .project-details
+    display none
 
-  #featured:target .project-name:not(.featured)
-    display: none;
+  #featured:target
+    .project-name
+      display none
 
-    + .project-details
-      display none;
+    .project-name.featured
+      display block
+
+      + .project-details
+        display block
 
   .project-details p
     display none
@@ -413,10 +434,10 @@ ul.references
 
   @media print
     .project-name
-      display: none;
+      display none
 
       + .project-details
-        display none;
+        display none
 
 input[type=checkbox]
   display none
@@ -424,4 +445,6 @@ input[type=checkbox]
   &:checked
     + .project-name + .project-details
       display block
+
+
 
