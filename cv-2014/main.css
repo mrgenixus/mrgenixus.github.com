@@ -1,5 +1,5 @@
 body {
-  background-color: #7e4415;
+  background-color: #cebd73;
   font-family: 'Open Sans', sans-serif;
 }
 #objective {
@@ -21,14 +21,14 @@ a {
   font-style: italic;
   color: #fff;
   display: inline-block;
-  background-color: #4f628e;
+  background-color: #458643;
   padding: 0.2em 8px;
   margin: 0.2em 0px;
   border-radius: 0px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 a:target {
-  background-color: #7e4415;
+  background-color: #cebd73;
 }
 @media screen and (min-width: 575px) {
   a.github-link {
@@ -41,7 +41,7 @@ a:target {
 @media screen {
   a.github-link::after {
     content: '';
-    background: url("../images/blacktocat.png") #4f628e no-repeat 50% 50%;
+    background: url("../images/blacktocat.png") #458643 no-repeat 50% 50%;
     background-origin: border-box;
     background-size: 16px;
     display: inline-block;
@@ -127,7 +127,7 @@ dd {
     border-top: 1px solid #000;
   }
   .document > section > section {
-    border-left: 1px solid #4f628e;
+    border-left: 1px solid #458643;
   }
   .document > section > section > header {
     position: absolute;
@@ -144,25 +144,25 @@ dd {
   top: 0;
 }
 .detail-content aside a {
-  background-color: #d4c26b;
+  background-color: #eddfa1;
 }
 .detail-content aside a[href="#none"] {
   display: none;
 }
 .detail-content aside a[href="#none"],
 .detail-content aside a[href=""] {
-  background-color: #7e6c15;
+  background-color: #cebd73;
 }
 .detail-content aside a:target,
 #featured:target [name=featured],
 .detail-content:target .show-all {
-  background-color: #7e6c15;
+  background-color: #cebd73;
 }
 #featured:target .detail-content aside a[href="#none"],
 .detail-content:target aside a[href="#none"],
 .detail-content:target aside a[href=""],
 #featured:target .detail-content aside a[href=""] {
-  background-color: #d4c26b !important;
+  background-color: #eddfa1 !important;
 }
 @media screen and (max-width: 575px) {
   .detail-content aside a {
@@ -187,7 +187,7 @@ dl.roles {
     font-weight: bold;
     color: #fff;
     display: inline-block;
-    background-color: #4f628e;
+    background-color: #458643;
     padding: 0.2em 8px;
     margin-bottom: 0.2em;
     position: absolute;
@@ -213,7 +213,7 @@ dl.roles {
     font-style: italic;
     color: #fff;
     display: block;
-    background-color: #7e4415;
+    background-color: #cebd73;
     padding: 0.2em 8px;
     display: inline-block;
     margin: 0 0.8em;
@@ -226,7 +226,7 @@ dl.roles {
   .featured a::before {
     font-style: italic;
     content: ' Featured: ';
-    color: #7e4415;
+    color: #cebd73;
     font-variant: small-caps;
   }
 }
@@ -270,8 +270,8 @@ dl.roles {
     position: relative;
     padding-top: 2.25em;
     padding-bottom: 1.5em;
-    background-color: #d4c26b;
-    border: 1px solid #7e6c15;
+    background-color: #eddfa1;
+    border: 1px solid #cebd73;
   }
   ul.flat-list::before {
     font-style: italic;
@@ -279,7 +279,7 @@ dl.roles {
     font-style: italic;
     color: #fff;
     display: block;
-    background-color: #4f628e;
+    background-color: #458643;
     padding: 0.2em 8px;
     position: absolute;
     left: 0;
@@ -348,7 +348,7 @@ dt.project-name a[href^="#"] {
 }
 @media screen {
   dt.project-name a[href^="#"]:hover {
-    color: #4f628e;
+    color: #458643;
     text-decoration: underline;
   }
 }
@@ -392,7 +392,7 @@ ul.references::before {
   font-weight: bold;
   color: #fff;
   display: inline-block;
-  background-color: #7e6c15;
+  background-color: #cebd73;
   padding: 0.2em 8px;
   margin-bottom: 0.2em;
   position: absolute;

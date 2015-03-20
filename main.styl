@@ -12,26 +12,15 @@ padding-end(dimension)
   -o-padding-end dimension
   padding-end dimension
 
-color-yellow-regular     = #D4C26B
-color-yellow-light       = #FCEDA6
-color-yellow-extra-light = #FFF6CD
-color-yellow-dark        = #AA973A
-color-yellow-extra-dark  = #7E6C15
+color-yellow-regular     = #EDDFA1
+color-yellow-dark        = #CEBD73
 
-color-blue-regular       = #4F628E
-color-blue-light         = #7585A9
-color-blue-extra-light   = #A8B3CC
-color-blue-dark          = #2F4372
-color-blue-extra-dark    = #152854
-
-color-brown-regular      = #D49B6B
-color-brown-light        = #FCCDA6
-color-brown-extra-light  = #FFE4CD
-color-brown-dark         = #AA6D3A
-color-brown-extra-dark   = #7E4415
+color-green-regular      = #458643
+color-green-dark         = #2E642C
+color-green-light        = #4FA24C
 
 body
-  background-color color-brown-extra-dark
+  background-color color-yellow-dark
   font-family 'Open Sans', sans-serif
 
 #objective
@@ -41,7 +30,7 @@ body
 
 @media screen and (min-width: 840px)
   body
-    background url(images/phx-park.jpg)
+    background url('images/phx-park.jpg')
     background-repeat no-repeat
     background-size cover
     background-attachment fixed
@@ -51,7 +40,7 @@ a
   font-style italic
   color white
   display inline-block
-  background-color color-blue-regular
+  background-color color-green-regular
   padding .2em 8px
   margin 0.2em 0px
   border-radius 0px
@@ -59,7 +48,7 @@ a
   box-shadow: 0 0 10px rgba(0,0,0,.5);
 
   &:target
-    background-color color-brown-extra-dark
+    background-color color-yellow-dark
 
   &.github-link
     @media screen and (min-width: 575px)
@@ -71,7 +60,7 @@ a
     @media screen
       &::after
         content ''
-        background url('../images/blacktocat.png') color-blue-regular no-repeat 50% 50%
+        background url('../images/blacktocat.png') color-green-regular no-repeat 50% 50%
         background-origin border-box
         background-size 16px
         display inline-block
@@ -146,7 +135,7 @@ dd
         margin-left -248px
         border-top 1px solid black
       > section
-        border-left 1px solid color-blue-regular
+        border-left 1px solid color-green-regular
         > header
           position absolute
           left -248px
@@ -168,12 +157,12 @@ dd
 
       &[href="#none"],
       &[href=""]
-        background-color color-yellow-extra-dark
+        background-color color-yellow-dark
 
 .detail-content aside a:target,
 #featured:target [name=featured],
 .detail-content:target .show-all
-  background-color color-yellow-extra-dark
+  background-color color-yellow-dark
 
 #featured:target .detail-content aside a[href="#none"],
 .detail-content:target aside a[href="#none"],
@@ -203,7 +192,7 @@ dl.roles
     font-weight bold
     color white
     display inline-block
-    background-color color-blue-regular
+    background-color color-green-regular
     padding .2em 8px
     margin-bottom 0.2em
     position absolute
@@ -230,7 +219,7 @@ dl.roles
       font-style italic
       color white
       display block
-      background-color color-brown-extra-dark
+      background-color color-yellow-dark
       padding 0.2em 8px
       display inline-block
       margin 0 0.8em
@@ -241,7 +230,7 @@ dl.roles
   .featured a::before
     font-style italic
     content ' Featured: '
-    color color-brown-extra-dark
+    color color-yellow-dark
     font-variant small-caps
 
 .detail-content:target dd.project-details
@@ -272,7 +261,7 @@ ul.flat-list
     padding-top 2.25em
     padding-bottom 1.5em
     background-color color-yellow-regular
-    border 1px solid color-yellow-extra-dark
+    border 1px solid color-yellow-dark
 
     &::before
       font-style italic
@@ -280,7 +269,7 @@ ul.flat-list
       font-style italic
       color white
       display block
-      background-color color-blue-regular
+      background-color color-green-regular
       padding .2em 8px
       position absolute
       left 0
@@ -340,7 +329,7 @@ dt.project-name
     box-shadow inherit
     @media screen
       &:hover
-        color color-blue-regular
+        color color-green-regular
         text-decoration underline
 
   &:target + dd.project-details
@@ -373,7 +362,7 @@ ul.references
     font-weight bold
     color white
     display inline-block
-    background-color color-yellow-extra-dark
+    background-color color-yellow-dark
     padding .2em 8px
     margin-bottom 0.2em
     position absolute
