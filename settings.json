@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "*.html": "liquid",
+    "*.svg": "text/binary"
+  },
+  "files.exclude": {
+    "_site": true
+  },
+  "editor.tabSize": 2
+}

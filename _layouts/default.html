@@ -1,0 +1,20 @@
+{% capture title %}
+  {%if page.title %}
+    {{ page.title}} - {{ site.title }}
+  {% else %}
+    {{ site.title }}
+  {% endif %}
+{% endcapture %}
+<!doctype html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+  </head>
+  <body class="d-flex flex-column h-100">
+    {{ content }}
+  <script src="/assets/js/bootstrap/bootstrap.min.js" lang="text/javascript"></script>
+  </body>
+</html>

@@ -1,1 +1,100 @@
-@import "bootstrap.scss";
+---
+---
+@import "bootstrap/functions";
+
+// Required
+@import "bootstrap/variables";
+@media print {
+  html {
+    font-size: 80%;
+  }
+  *{  transition: none !important }
+
+  @page { margin: 0; }
+  body { margin: 0; }
+}
+
+@import "bootstrap/index";
+@import "sticky-footer";
+
+a.link-reset {
+  @extend .text-reset;
+  text-decoration: none;
+
+  &:hover {
+    outline: dotted thin;
+    outline-offset: .3rem;
+  }
+}
+
+
+h1 {
+  color: $purple-600;
+}
+
+@each $size in (1, 2) {
+  .h#{$size}, h#{$size} {
+    font-weight: 900;
+    @each $size in (1, 2, 3, 4, 5, 6) {
+      &.display-#{$size} {
+        font-weight: revert;
+      }
+    }
+  }
+}
+
+@each $size in (1, 2, 3, 4, 5, 6) {
+  .h#{$size}, h#{$size} {
+    break-after: avoid;
+  }
+}
+
+p {
+  break-inside: avoid;
+}
+
+ul.list-star {
+  &:before {
+    content: "\2606";
+    margin-left: $spacer * -1.5;
+    padding-right: $spacer * .5;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  $visible: ":not(.d-none)";
+  $last-visible-child: ":nth-last-child(1 of #{$visible})";
+  $first-visible: ":nth-child(1 of #{$visible})";
+  $second-to-last-visible: "nth-last-child(2 of #{$visible})";
+  $first-of-two: "#{$first-visible}:#{$second-to-last-visible}";
+  $only: ":nth-child(1 of #{$visible}):nth-last-child(1 of #{$visible})";
+  $last: ":nth-last-child(1 of #{$visible})";
+
+  li:not(#{$only}):not(#{$first-of-two}):not(#{$last}):after {
+    content: ", ";
+    user-select: none;
+  }
+
+  li#{$last}:not(#{$only}):before {
+    content: "and ";
+    user-select: none;
+  }
+}
+
+section[data-skills=""] {
+  display: none;
+}
+
+ul#list-skills {
+  @extend .list-inline;
+}
+
+@each $color, $value in $theme-colors {
+  .text-bg-#{$color}, .bg-#{color} {
+    .h1, h1 {
+      color: color-contrast($value, $color-contrast-dark: $purple-600, $color_contrast_light: $purple-200) if($enable-important-utilities, !important, null);
+    }
+  }
+}
