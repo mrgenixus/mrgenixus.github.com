@@ -98,3 +98,18 @@ ul#list-skills {
     }
   }
 }
+
+a.github-link {
+  &::after {
+    content: '';
+    background: url(/assets/images/blacktocat.png) $dark no-repeat 50% 50%;
+    background-origin: border-box;
+    background-size: inherit;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin: -6px -8px -10px 8px;
+  }
+
+  color: #fff;
+}
