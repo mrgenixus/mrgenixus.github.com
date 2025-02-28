@@ -15,6 +15,11 @@ layout: home
       </div>
     </div>
     {% capture about-me %}{% include about-me.md %}{% endcapture %}
-    {{ about-me | markdownify }}
+    <div class="mb-3 mb-md-0 ms-md-3 w-md-50 float-md-end border border-md-0 p-2 p-md-0">
+      <img class="w-100 h-auto image-fluid" alt="An Artist's studio" src="assets/images/creative.png" />
+    </div>
+    <div class="pe-3">
+      {{ about-me | markdownify }}
+    </div>
   </div>
 
