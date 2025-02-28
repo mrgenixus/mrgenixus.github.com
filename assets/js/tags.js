@@ -1,3 +1,5 @@
+import { hideEmptyHeadings } from "./hideEmptyHeadings.js";
+
 const SLUG_STEPS = [
   ['replace', ['#', 'sharp']],
   ['replace', ['.', 'dot']],
@@ -31,21 +33,43 @@ export class Tag {
     this.#name = name;
     this.#slug = slugify(name);
     this.#listItem = document.createElement('li');
-    this.#listItem.classList.add('list-inline-item')
-    this.#listItem.addEventListener('click', this.hide.bind(this))
+    // this.#listItem.classList.add('list-inline-item');
+    this.#listItem.className = 'badge rounded-pill text-bg-secondary user-select-none mx-1';
+    this.#listItem.addEventListener('click', this.handleItemInteraction.bind(this));
     this.#updateInnerText();
   }
 
-  hide(e) {
+  handleItemInteraction(e) {
+    const mode = window?.mode?.dataset?.mode;
+
     window.requestAnimationFrame(() => {
-      this.#elements.forEach((e) => e.classList.add('d-none'));
-      this.#listItem.classList.add('d-none');
+      if (mode === 'tune') {
+        this.hide();
+      } else {
+        this.highlight();
+      }
     });
+  }
+
+  highlight() {
+    if (this.#listItem.classList.contains('text-bg-primary')) {
+      this.#listItem.classList.replace('text-bg-primary', 'text-bg-secondary');
+      this.#elements.forEach((e) => e.classList.remove('text-bg-primary'));
+    } else {
+      this.#listItem.classList.replace('text-bg-secondary', 'text-bg-primary');
+      this.#elements.forEach((e) => e.classList.add('text-bg-primary'));
+    }
+
+  }
+
+  hide() {
+    this.#elements.forEach((e) => e.classList.add('d-none'));
+    this.#listItem.classList.add('d-none');
   }
 
   addElement(e) {
     this.#elements.push(e);
-    e.addEventListener('click', this.hide.bind(this));
+    e.addEventListener('click', this.handleItemInteraction.bind(this));
     this.#updateInnerText();
   }
 
@@ -66,7 +90,7 @@ export class Tag {
 
   #updateInnerText() {
     this.#listItem.innerText = `${this.#name}`;
-    this.#listItem.style.fontSize = `${(100 + 15 * this.count)}%`;
+    // this.#listItem.style.fontSize = `${(100 + 15 * this.count)}%`;
   }
 
   get listItem() {
@@ -86,21 +110,36 @@ export class SkillTag extends Tag {
   constructor(name) {
     super(name);
     this.#sections = [];
-    this.listItem.addEventListener('click', this.removeTagData.bind(this));
+    this.listItem.addEventListener('click', this.interactWithTag.bind(this));
+  }
+
+  get sections() {
+    return Array.from(this.#sections);
+  }
+
+  hide() {
+    super.hide();
+    const section = this.#sections.find((x) => x);
+    if (section) {
+      hideEmptyHeadings(section);
+    }
   }
 
   addElement(e) {
     super.addElement(e);
     this.#addSection(e.closest(this.constructor.sectionSelector));
-    e.addEventListener('click', this.removeTagData.bind(this));
+    e.addEventListener('click', this.interactWithTag.bind(this));
   }
 
-  removeTagData() {
-    this.#sections.forEach((section) => {
-      updateAttributeList(this.constructor.separator, section, `data-${this.constructor.dataAttribute}`, (l) => {
-        return l.filter((s) => s !== this.slug);
-      });
-    })
+  interactWithTag() {
+    const mode = window.mode.dataset.mode;
+    if (mode === 'tune') {
+      this.#sections.forEach((section) => {
+        updateAttributeList(this.constructor.separator, section, `data-${this.constructor.dataAttribute}`, (l) => {
+          return l.filter((s) => s !== this.slug);
+        });
+      })
+    }
   }
 
   #addSection(section) {
@@ -162,6 +201,10 @@ export class TagList {
 
   reduce(...args) {
     return this.tags.reduce(...args);
+  }
+
+  forEach(...args) {
+    return this.tags.forEach(...args);
   }
 
   static subclass({
