@@ -34,3 +34,27 @@ sections.forEach((section) => {
     }
   })
 });
+
+const url = URL.parse(window.location.href);
+const suppress = url.searchParams.get('suppress');
+(suppress?.split(',').filter((x) => x) ?? []).forEach((project) => {
+  const section = document.querySelector(`#previous-experience-${project}, #education-${project}`);
+  section?.classList.add('d-none');
+});
+
+const feature = url.searchParams.get('feature');
+const featuredProjects = feature?.split(',').filter((x) => x) ?? [];
+const featuredProjectIds = featuredProjects.map((project) => `previous-experience-${project}`);
+console.log(featuredProjectIds)
+if (false && featuredProjects.length) {
+  sections.forEach((section) => {
+    console.log(section.id)
+    if (featuredProjectIds.includes(section.id)) {
+      section.classList.remove('d-none');
+      section.classList.add('d-block');
+    } else {
+      section.classList.add('d-none');
+      section.classList.remove('d-block');
+    }
+  })
+}

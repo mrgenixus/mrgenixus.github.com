@@ -33,8 +33,7 @@ export class Tag {
     this.#name = name;
     this.#slug = slugify(name);
     this.#listItem = document.createElement('li');
-    // this.#listItem.classList.add('list-inline-item');
-    this.#listItem.className = 'badge rounded-pill text-bg-secondary user-select-none mx-1';
+    this.#listItem.className = 'skill-list-item text-bg-secondary';
     this.#listItem.addEventListener('click', this.handleItemInteraction.bind(this));
     this.#updateInnerText();
   }

@@ -4,7 +4,7 @@ title: Resume
 oc: tune-or-explore
 ---
 <div class="container py-3">
-  <div class="row align-items-end flex-wrap">
+  <div class="row align-items-end flex-wrap mw-100">
     <div class="col-md-8 pe-2">
       <h1 class="display-1">
         Ben West
@@ -23,99 +23,109 @@ oc: tune-or-explore
       </ul>
     </div>
   </div>
-  <div class="d-flex flex-row">
-    <div class="col-md-8 pe-2">
-      <h2>Summary</h2>
+  <div
+    class="d-flex flex-row mw-100 flex-wrap"
+    data-bs-spy="scroll"
+    data-bs-target="#mobile-navbar"
+    {% comment %}
+    data-bs-root-margin="0px 0px -40%"
+    {% endcomment %}
+    data-bs-smooth-scroll="true">
+    <div class="col-12 col-md-8 pe-2">
+      <h2 id="summary">Summary</h2>
       <p>
         I am a Strategic Technical Professional relentlessly focused on helping people, teams, and companies achieve more than they thought possible through providing visionary execution and by going above and beyond when needed. Energized by conquering complex challenges and fueled by taking in new information, making critical decisions, I am self-motivated and able to hit the ground running, regardless of the domain. Combine solid technical abilities, business acumen, and relationship building skills to products and solutions efficiently tailored to real world customer success.
       </p>
-      <h2 id="experience">Experience</h2>
-      {% for experience in site.experience %}
-        {% if experience.display != 'false' %}
-          <section id="previous-experience-{{ experience.name | slugify: "latin" }}">
-            <h3>
-              <strong>{{ experience.title }}</strong>
-              –
-              <em>{{ experience.name }}
-                {% if experience.title-detail %}
-                  • {{ experience.title-detail }}
-                {% endif %}
-              </em>
-              – {{ experience.tenure }}
-            </h3>
+      <div id="experience-anchor">
+        <h2 id="experience">Experience</h2>
+        {% for experience in site.experience %}
+          {% if experience.display != 'false' %}
+            <section id="previous-experience-{{ experience.name | slugify: "latin" }}">
+              <h3>
+                <strong>{{ experience.title }}</strong>
+                –
+                <em>{{ experience.name }}
+                  {% if experience.title-detail %}
+                    • {{ experience.title-detail }}
+                  {% endif %}
+                </em>
+                – {{ experience.tenure }}
+              </h3>
 
-            {{ experience.content }}
+              {{ experience.content }}
 
-            {% if experience.key-accomplishments %}
-              <h4>Key Accomplishments:</h4>
-              <ul>
-                {% for accomplishment in experience.key-accomplishments %}
-                  <li>{{ accomplishment }}</li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-            {% if experience.skills %}
-              <ul class="list-star">
-                {% for skill in experience.skills %}
-                  <li>{{ skill }}</li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </section>
-        {% endif %}
-      {% endfor %}
+              {% if experience.key-accomplishments %}
+                <h4>Key Accomplishments:</h4>
+                <ul>
+                  {% for accomplishment in experience.key-accomplishments %}
+                    <li>{{ accomplishment }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+              {% if experience.skills %}
+                <ul class="list-star">
+                  {% for skill in experience.skills %}
+                    <li>{{ skill }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </section>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div id="education-anchor">
+        <h2 id="education">Education</h2>
+        <section>
+          <h3>
+            <strong>IT and Technology Professional (not completed)</strong>
+            –
+            <em>Nefarious Institution</em>
+            – 2002-2004</h3>
 
-      <h2 id="education">Education</h2>
-      <section>
-        <h3>
-          <strong>IT and Technology Professional (not completed)</strong>
-          –
-          <em>Nefarious Institution</em>
-          – 2002-2004</h3>
+          <h4>Course of Study:</h4>
+          <ul class="list-star">
+            <li>Internet networking</li>
+            <li>Desktop Support</li>
+            <li>Windows and Unix Technology</li>
+            <li>General Education</li>
+          </ul>
+        </section>
 
-        <h4>Course of Study:</h4>
-        <ul class="list-star">
-          <li>Internet networking</li>
-          <li>Desktop Support</li>
-          <li>Windows and Unix Technology</li>
-          <li>General Education</li>
-        </ul>
-      </section>
+        <section>
+          <h3>
+            <strong>Concurrent Enrollment</strong>
+            –
+            <em>Aims Community College</em>
+            – 2001-2002</h3>
 
-      <section>
-        <h3>
-          <strong>Concurrent Enrollment</strong>
-          –
-          <em>Aims Community College</em>
-          – 2001-2002</h3>
+          <h4>Course of Study:</h4>
+          <ul class="list-star">
+            <li>Computer Science</li>
+          </ul>
+        </section>
 
-        <h4>Course of Study:</h4>
-        <ul class="list-star">
-          <li>Computer Science</li>
-        </ul>
-      </section>
-
-      <section>
-        <h3>
-          <strong>High School</strong>
-          –
-          <em>Union Colony Preparatory School</em>
-          – Class of 2002</h3>
-        <h4>Course of Study:</h4>
-        <ul class="list-star">
-          <li>Journalism</li>
-          <li>Communications</li>
-          <li>Document Review</li>
-          <li>Thesis</li>
-          <li>Advance Mathematics</li>
-          <li>Foreign Language (Esp)</li>
-        </ul>
-      </section>
+        <section>
+          <h3>
+            <strong>High School</strong>
+            –
+            <em>Union Colony Preparatory School</em>
+            – Class of 2002</h3>
+          <h4>Course of Study:</h4>
+          <ul class="list-star">
+            <li>Journalism</li>
+            <li>Communications</li>
+            <li>Document Review</li>
+            <li>Thesis</li>
+            <li>Advance Mathematics</li>
+            <li>Foreign Language (Esp)</li>
+          </ul>
+        </section>
+      </div>
     </div>
-    <div class="col-md-4">
-      <div>
+    <div class="col-12 col-md-4">
+      <div id="skills-anchor">
         <h2>Skills</h2>
-        <ul id="list-skills" class="justify-content-center"></ul>
+        <ul id="list-skills"></ul>
         <script
           lang="text/javascript"
           type="module"
@@ -123,6 +133,17 @@ oc: tune-or-explore
       </div>
     </div>
   </div>
+
+  <nav id="mobile-navbar" class="d-md-none d-print-none navbar fixed-bottom bg-body-tertiary">
+    <div class="container-fluid">
+      <div class="nav nav-pills nav-fill">
+        <a class="nav-link" href="#summary">Summary</a>
+        <a class="nav-link" href="#experience-anchor">Experience</a>
+        <a class="nav-link" href="#education-anchor">Education</a>
+        <a class="nav-link" href="#skills-anchor">Skills</a>
+      </div>
+    </div>
+  </nav>
 
   {% include tune-or-explore.html oc=page.oc %}
 </div>

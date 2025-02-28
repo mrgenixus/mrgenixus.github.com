@@ -4,14 +4,24 @@
 
 // Required
 @import "bootstrap/variables";
+
 @media print {
   html {
     font-size: 80%;
   }
-  *{  transition: none !important }
+  *{ transition: none !important }
 
-  @page { margin: 0; }
   body { margin: 0; }
+
+  @page {
+    size: 1275px 1650px;
+    margin: 0.5in;
+  }
+
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
 }
 
 @import "bootstrap/index";
@@ -46,10 +56,14 @@ h1 {
 @each $size in (1, 2, 3, 4, 5, 6) {
   .h#{$size}, h#{$size} {
     break-after: avoid;
+
+    @media print {
+      font-size: 125%;
+    }
   }
 }
 
-p {
+p, section {
   break-inside: avoid;
 }
 
@@ -88,7 +102,28 @@ section[data-skills=""] {
 }
 
 ul#list-skills {
-  @extend .list-inline;
+  list-style: none;
+  padding-left: 0;
+
+  .skill-list-item {
+    @extend .badge;
+    @extend .rounded-pill;
+    @extend .user-select-none;
+    @extend .mx-1;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media print {
+      display: list-item;
+      text-align: left;
+      background-color: inherit !important;
+      color: inherit !important;
+
+    }
+
+  }
+
 }
 
 @each $color, $value in $theme-colors {

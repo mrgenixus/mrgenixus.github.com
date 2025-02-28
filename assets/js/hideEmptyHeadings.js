@@ -3,10 +3,7 @@ export function hideEmptyHeadings(section) {
   let heading;
   let hide = true;
 
-  console.log(curr, heading, hide, 'before');
-
   while (true) {
-    console.log(curr, heading, hide);
     if (curr === null || curr.tagName.toLowerCase() === 'h2') {
       if (heading && hide) {
         heading.classList.add('d-none');
@@ -25,5 +22,4 @@ export function hideEmptyHeadings(section) {
 
     curr = curr.nextElementSibling;
   }
-  console.log(curr, heading, hide, 'after');
 }
