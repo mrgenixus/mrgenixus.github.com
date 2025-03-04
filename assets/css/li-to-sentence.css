@@ -1,0 +1,2 @@
+ul.sentence li:not(:nth-child(1 of :not(.d-none)):nth-last-child(1 of :not(.d-none))):not(:nth-child(1 of :not(.d-none)):nth-last-child(2 of :not(.d-none))):not(:nth-last-child(1 of :not(.d-none))):after { content: ", "; user-select: none; }
+ul.sentence li:nth-last-child(1 of :not(.d-none)):not(:nth-child(1 of :not(.d-none)):nth-last-child(1 of :not(.d-none))):before { content: "and "; user-select: none; }

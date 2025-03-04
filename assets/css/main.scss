@@ -94,23 +94,27 @@ ul.list-star {
     display: inline-block;
   }
 
-  $visible: ":not(.d-none)";
-  $last-visible-child: ":nth-last-child(1 of #{$visible})";
-  $first-visible: ":nth-child(1 of #{$visible})";
-  $second-to-last-visible: "nth-last-child(2 of #{$visible})";
-  $first-of-two: "#{$first-visible}:#{$second-to-last-visible}";
-  $only: ":nth-child(1 of #{$visible}):nth-last-child(1 of #{$visible})";
-  $last: ":nth-last-child(1 of #{$visible})";
+//   $visible: ":not(.d-none)";
+//   $last-visible-child: ":nth-last-child(1 of #{$visible})";
+//   $first-visible: ":nth-child(1 of #{$visible})";
+//   $second-to-last-visible: "nth-last-child(2 of #{$visible})";
+//   $first-of-two: "#{$first-visible}:#{$second-to-last-visible}";
+//   $only: ":nth-child(1 of #{$visible}):nth-last-child(1 of #{$visible})";
+//   $last: ":nth-last-child(1 of #{$visible})";
 
-  li:not(#{$only}):not(#{$first-of-two}):not(#{$last}):after {
-    content: ", ";
-    user-select: none;
-  }
+//   /*
 
-  li#{$last}:not(#{$only}):before {
-    content: "and ";
-    user-select: none;
-  }
+//   li:not(#{$only}):not(#{$first-of-two}):not(#{$last}):after {
+//     content: ", ";
+//     user-select: none;
+//   }
+
+//   li#{$last}:not(#{$only}):before {
+//     content: "and ";
+//     user-select: none;
+//   }
+
+//   */
 }
 
 section[data-skills=""] {
