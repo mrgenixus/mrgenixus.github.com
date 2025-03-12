@@ -1,0 +1,8 @@
+---
+---
+{%- for experience in site.experience -%}
+  {% assign skills = skills | concat: experience.skills %}
+{%- endfor -%}
+{% assign skills = skills | uniq | sort %}
+
+{% for skill in skills %}- {{ skill }}<br/>{% endfor %}

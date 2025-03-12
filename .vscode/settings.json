@@ -6,5 +6,8 @@
   "files.exclude": {
     "_site": true
   },
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "[liquid]": {
+    "editor.formatOnSave": true
+  }
 }
