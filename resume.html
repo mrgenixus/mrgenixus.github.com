@@ -52,11 +52,13 @@ oc: tune-or-explore
                 – {{ experience.tenure }}
               </h3>
 
-              {{ experience.content }}
+              <div class="content-editable">
+                {{ experience.content }}
+              </div>
 
               {% if experience.key-accomplishments %}
                 <h4>Key Accomplishments:</h4>
-                <ul>
+                <ul class="content-editable">
                   {% for accomplishment in experience.key-accomplishments %}
                     <li>{{ accomplishment }}</li>
                   {% endfor %}

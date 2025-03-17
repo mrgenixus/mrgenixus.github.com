@@ -3,6 +3,8 @@ if !(which lynx); then
 fi
 pid="";
 
+bundle exec jekyll build
+
 cat _site/skills.html | lynx -stdin -dump > $(git root)/skills-cache.txt
 
 pkill -P $$

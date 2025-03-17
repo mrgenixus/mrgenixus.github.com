@@ -6,3 +6,4 @@ vendor
 .DS_Store
 Gemfile.lock
 skills-cache.txt
+node_modules/
