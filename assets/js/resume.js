@@ -17,7 +17,7 @@ const identity = ($) => $;
 const arrayFromString = (str, sep=',') => str?.split(sep).filter(identity) ?? [];
 
 const ul = document.querySelector(LIST_SKILLS)
-ul.innerHTMl = '';
+ul.innerHTML = '';
 // const sections = Array.from(document.querySelectorAll('h2#experience ~ section:not(h2#experience ~ h2 ~ *)'));
 
 const sections = Array.from(document.querySelector(EXPERIENCE).parentElement.querySelectorAll('section'));
@@ -58,7 +58,7 @@ const updateModeClass = ((mode_cache) => () => {
 updateModeClass();
 
 const suppressProject = (project) => {
-  const url = URL.parse(window.location.href);
+  const url = new URL(window.location.href);
   const strSuppress = url.searchParams.get(SUPPRESS);
   const suppress = arrayFromString(strSuppress);
 
@@ -90,7 +90,7 @@ sections.forEach((section) => {
   });
 });
 
-const url = URL.parse(window.location.href);
+const url = new URL(window.location.href);
 const suppress = url.searchParams.get(SUPPRESS);
 arrayFromString(suppress).forEach((project) => {
   const section = getSectionByProject(project);
@@ -114,7 +114,7 @@ if (featuredProjectIds.length) {
 }
 
 document.querySelector('#reset').addEventListener('click', () => {
-  const url = URL.parse(window.location.href);
+  const url = new URL(window.location.href);
   url.searchParams.forEach((_v, key) => url.searchParams.delete(key));
   window.location.assign(url.toString());
 });
