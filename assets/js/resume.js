@@ -12,6 +12,9 @@ const SECTION_ID_PREFIXES_REGEX = new RegExp(`(${EXPERIENCE_SECTION_ID}|${EDUCAT
 const STAR_LIST_ITEM = '.list-star li';
 const FEATURE = 'feature';
 const TUNE = 'tune';
+const FILTER = 'filter';
+const FILTER_LOGIC_AND = 'and';
+const FILTER_LOGIC_OR = 'or';
 
 const identity = ($) => $;
 const arrayFromString = (str, sep=',') => str?.split(sep).filter(identity) ?? [];
@@ -30,9 +33,103 @@ tagList.forEach((tag) => {
   ul.appendChild(tag.listItem);
 });
 
+const filterState = (() => {
+  let baseHidden = new Map();
+  let active = false;
+
+  const isExperienceSection = (section) => section.id.startsWith(EXPERIENCE_SECTION_ID);
+  const isSelected = (tag) => tag.listItem.classList.contains('text-bg-primary');
+  const selectedSkillSlugs = () => tagList.filter(isSelected).map((tag) => tag.slug);
+
+  const clearSelectedSkills = () => {
+    tagList.forEach((tag) => {
+      if (isSelected(tag)) {
+        tag.highlight();
+      }
+    });
+  };
+
+  const snapshotBaseVisibility = () => {
+    baseHidden = new Map(sections.map((section) => [section.id, section.classList.contains(DISPLAY_NONE)]));
+  };
+
+  const sectionHasSelectedSkills = (section, selected) => {
+    const skills = arrayFromString(section.getAttribute('data-skills'), ' ');
+    const logic = window.mode?.dataset?.filterLogic ?? FILTER_LOGIC_AND;
+    if (logic === FILTER_LOGIC_OR) {
+      return selected.some((skill) => skills.includes(skill));
+    }
+    return selected.every((skill) => skills.includes(skill));
+  };
+
+  const restoreBaseVisibility = () => {
+    sections.forEach((section) => {
+      if (baseHidden.get(section.id)) {
+        hide(section);
+      } else {
+        show(section);
+      }
+    });
+  };
+
+  const apply = () => {
+    if (!active) return;
+
+    const selected = selectedSkillSlugs();
+
+    sections.forEach((section) => {
+      if (!isExperienceSection(section)) {
+        hide(section);
+        return;
+      }
+
+      if (baseHidden.get(section.id)) {
+        hide(section);
+        return;
+      }
+
+      if (!selected.length) {
+        show(section);
+        return;
+      }
+
+      if (sectionHasSelectedSkills(section, selected)) {
+        show(section);
+      } else {
+        hide(section);
+      }
+    });
+  };
+
+  const enter = () => {
+    snapshotBaseVisibility();
+    active = true;
+    clearSelectedSkills();
+    restoreBaseVisibility();
+    apply();
+  };
+
+  const exit = () => {
+    if (!active) return;
+    clearSelectedSkills();
+    active = false;
+    restoreBaseVisibility();
+  };
+
+  return {
+    apply,
+    enter,
+    exit,
+  };
+})();
+
+window.resumeFilter = filterState;
+
 const updateModeClass = ((mode_cache) => () => {
   const mode = window.mode.dataset.mode;
-  if (mode === mode_cache) return;
+  const isInitialCall = typeof mode_cache === 'undefined';
+  if (mode === mode_cache && !isInitialCall) return;
+  const previousMode = mode_cache;
   mode_cache = mode;
 
   window.requestAnimationFrame(() => {
@@ -52,6 +149,14 @@ const updateModeClass = ((mode_cache) => () => {
     Array.from(editable_sections).forEach((section) => {
       section.contentEditable = (mode === TUNE);
     });
+
+    if (!isInitialCall) {
+      if (mode === FILTER) {
+        filterState.enter();
+      } else if (previousMode === FILTER) {
+        filterState.exit();
+      }
+    }
   });
   return true;
 })();
@@ -69,6 +174,14 @@ const suppressProject = (project) => {
 
 const observer = new MutationObserver(updateModeClass);
 observer.observe(window.mode, { attributes: true});
+
+const filterLogicObserver = new MutationObserver(() => {
+  if (window.mode.dataset.mode === FILTER) {
+    filterState.apply();
+  }
+});
+filterLogicObserver.observe(document.querySelector('#filter-logic'), { attributes: true });
+
 sections.forEach((section) => {
   const project = section.id.replace(SECTION_ID_PREFIXES_REGEX, '');
   section.querySelector('h3').addEventListener('click', (e) => {
@@ -82,7 +195,7 @@ sections.forEach((section) => {
 
       hideEmptyHeadings(section);
 
-    } else {
+    } else if (mode === 'explore') {
       section.querySelectorAll(STAR_LIST_ITEM).forEach((li) => {
         tagList.find((tag) => tag.name === li.innerText).highlight();
       });
@@ -110,8 +223,17 @@ if (featuredProjectIds.length) {
         hide(section);
       }
     });
+    if (window.mode.dataset.mode === FILTER) {
+      filterState.enter();
+    }
   });
 }
+
+window.requestAnimationFrame(() => {
+  if (window.mode.dataset.mode === FILTER) {
+    filterState.enter();
+  }
+});
 
 document.querySelector('#reset').addEventListener('click', () => {
   const url = new URL(window.location.href);

@@ -44,7 +44,7 @@ export class Tag {
     window.requestAnimationFrame(() => {
       if (mode === 'tune') {
         this.hide();
-      } else {
+      } else if (mode === 'explore') {
         this.highlight();
       }
     });
@@ -138,6 +138,9 @@ export class SkillTag extends Tag {
           return l.filter((s) => s !== this.slug);
         });
       })
+    } else if (mode === 'filter') {
+      this.highlight();
+      window.resumeFilter?.apply();
     }
   }
 

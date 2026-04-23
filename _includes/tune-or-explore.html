@@ -28,6 +28,31 @@
         autocomplete="off"
         id="explore-mode-option">
       <label class="btn" for="explore-mode-option">Explore</label>
+
+      <input
+        type="radio"
+        class="btn-check"
+        name="mode"
+        autocomplete="off"
+        id="filter-mode-option">
+      <label class="btn" for="filter-mode-option">Filter</label>
+    </div>
+    <div id="filter-logic" class="mt-3">
+      <input
+        type="radio"
+        class="btn-check"
+        name="filter-logic"
+        autocomplete="off"
+        id="filter-logic-and-option">
+      <label class="btn" for="filter-logic-and-option">AND</label>
+
+      <input
+        type="radio"
+        class="btn-check"
+        name="filter-logic"
+        autocomplete="off"
+        id="filter-logic-or-option">
+      <label class="btn" for="filter-logic-or-option">OR</label>
     </div>
     <button
       type="button"
@@ -37,9 +62,12 @@
   <script lang="javascript" type="module">
     const container = document.querySelector('#mode');
     const buttons = Array.from(container.querySelectorAll('input[type=radio][name="mode"]'));
+    const filterLogicContainer = document.querySelector('#filter-logic');
+    const filterLogicButtons = Array.from(filterLogicContainer.querySelectorAll('input[type=radio][name="filter-logic"]'));
     export const state = {};
     const url = new URL(window.location.href);
     state.mode = url.searchParams.get('mode') ?? 'explore';
+    state.filterLogic = url.searchParams.get('filter-logic') ?? 'and';
     const updateMode = (newMode) => {
       window.requestAnimationFrame(() => {
         state.mode = newMode
@@ -51,6 +79,17 @@
       });
     }
 
+    const updateFilterLogic = (newLogic) => {
+      window.requestAnimationFrame(() => {
+        state.filterLogic = newLogic;
+        const currentFilterLogicButton = filterLogicButtons.find((el) => {
+          return el.id === `filter-logic-${state.filterLogic}-option`
+        });
+        (currentFilterLogicButton ?? {}).checked = true;
+        filterLogicContainer.dataset['filterLogic'] = state.filterLogic;
+      });
+    }
+
     buttons.forEach((button) => {
       button.addEventListener('change', (e) => {
         e.preventDefault();
@@ -59,6 +98,15 @@
       });
     });
 
+    filterLogicButtons.forEach((button) => {
+      button.addEventListener('change', (e) => {
+        e.preventDefault();
+        updateFilterLogic(button.id.replace('filter-logic-', '').replace('-option', ''));
+        return false;
+      });
+    });
+
     updateMode(state.mode);
+    updateFilterLogic(state.filterLogic);
   </script>
 {% endif %}
