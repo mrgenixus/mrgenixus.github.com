@@ -7,3 +7,4 @@ vendor
 Gemfile.lock
 skills-cache.txt
 node_modules/
+experience-aggregate.md
