@@ -58,14 +58,20 @@ h1 {
   color: $purple-600;
 }
 
-@each $size in (1, 2) {
+@each $size in (1, 2, 3) {
   .h#{$size}, h#{$size} {
-    font-weight: 900;
+    font-weight: 700;
     @each $size in (1, 2, 3, 4, 5, 6) {
       &.display-#{$size} {
         font-weight: revert;
       }
     }
+  }
+}
+
+@each $size in (1, 2) {
+  .h#{$size}, h#{$size} {
+    letter-spacing: -0.03em;
   }
 }
 
@@ -83,13 +89,81 @@ p, section {
   break-inside: avoid;
 }
 
-ul.list-star {
-  &:before {
-    content: "\2606";
-    margin-left: $spacer * -1.5;
-    padding-right: $spacer * .5;
-  }
+.experience-entry {
+  padding: .85rem 0 .65rem;
+  margin-top: .75rem;
+  border-top: 1px solid rgba($body-color, .12);
+}
 
+.experience-entry:first-of-type {
+  margin-top: 0;
+  padding-top: .35rem;
+  border-top: 0;
+}
+
+.experience-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .35rem .55rem;
+  margin-bottom: .1rem;
+}
+
+.experience-role {
+  font-weight: 650;
+}
+
+.experience-detail {
+  display: inline-flex;
+  align-items: center;
+  padding: .12rem .45rem;
+  border: 1px solid rgba($body-color, .14);
+  border-radius: 999px;
+  color: $secondary;
+  font-size: .74em;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.experience-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .25rem .8rem;
+  margin-bottom: .35rem;
+  color: $secondary;
+  font-size: .92rem;
+}
+
+.experience-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+}
+
+.experience-meta-icon,
+.experience-block-icon {
+  display: inline-flex;
+  font-style: normal;
+  color: $purple-600;
+  font-size: .82em;
+  line-height: 1;
+}
+
+.experience-block-label {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  margin: .65rem 0 .22rem;
+  color: $secondary;
+  font-size: .88rem;
+  font-weight: 800;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+ul.list-star {
   li {
     display: inline-block;
   }
@@ -121,7 +195,28 @@ section[data-skills=""] {
   display: none;
 }
 
+.experience-entry .content-editable ul {
+  margin-bottom: .35rem;
+}
+
+.experience-entry ul.list-star {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .25rem .45rem;
+  padding-left: 0;
+  margin-bottom: 0;
+
+  li {
+    display: inline-flex;
+  }
+}
+
 ul#list-skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .35rem;
   list-style: none;
   padding-left: 0;
 
@@ -129,8 +224,6 @@ ul#list-skills {
     @extend .badge;
     @extend .rounded-pill;
     @extend .user-select-none;
-    @extend .mx-1;
-
     overflow: hidden;
     text-overflow: ellipsis;
 

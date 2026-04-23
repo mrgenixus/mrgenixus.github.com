@@ -40,24 +40,36 @@ oc: tune-or-explore
         <h2 id="experience">Experience</h2>
         {% for experience in site.experience %}
           {% if experience.display != 'false' %}
-            <section id="previous-experience-{{ experience.name | slugify: "latin" }}">
-              <h3>
-                <strong>{{ experience.title }}</strong>
-                –
-                <em>{{ experience.name }}
-                  {% if experience.title-detail %}
-                    • {{ experience.title-detail }}
-                  {% endif %}
-                </em>
-                – {{ experience.tenure }}
+            <section
+              class="experience-entry"
+              id="previous-experience-{{ experience.name | slugify: "latin" }}">
+              <h3 class="experience-heading">
+                <span class="experience-role">{{ experience.title }}</span>
+                {% if experience.title-detail %}
+                  <span class="experience-detail">{{ experience.title-detail }}</span>
+                {% endif %}
               </h3>
+
+              <div class="experience-meta">
+                <span class="experience-meta-item experience-company">
+                  <i class="experience-meta-icon bi bi-building" aria-hidden="true"></i>
+                  <span>{{ experience.name }}</span>
+                </span>
+                <span class="experience-meta-item experience-tenure">
+                  <i class="experience-meta-icon bi bi-calendar3" aria-hidden="true"></i>
+                  <span>{{ experience.tenure }}</span>
+                </span>
+              </div>
 
               <div class="content-editable">
                 {{ experience.content }}
               </div>
 
               {% if experience.key-accomplishments %}
-                <h4>Key Accomplishments:</h4>
+                <h4 class="experience-block-label">
+                  <i class="experience-block-icon bi bi-trophy" aria-hidden="true"></i>
+                  <span>Accomplishments</span>
+                </h4>
                 <ul class="content-editable">
                   {% for accomplishment in experience.key-accomplishments %}
                     <li>{{ accomplishment }}</li>
@@ -65,6 +77,10 @@ oc: tune-or-explore
                 </ul>
               {% endif %}
               {% if experience.skills %}
+                <h4 class="experience-block-label">
+                  <i class="experience-block-icon bi bi-tools" aria-hidden="true"></i>
+                  <span>Skills</span>
+                </h4>
                 <ul class="list-star sentence">
                   {% for skill in experience.skills %}
                     <li>{{ skill }}</li>
@@ -77,14 +93,26 @@ oc: tune-or-explore
       </div>
       <div id="education-anchor">
         <h2 id="education">Education</h2>
-        <section>
-          <h3>
-            <strong>IT and Technology Professional (not completed)</strong>
-            –
-            <em>Nefarious Institution</em>
-            – 2002-2004</h3>
+        <section class="experience-entry education-entry">
+          <h3 class="experience-heading">
+            <span class="experience-role">IT and Technology Professional (not completed)</span>
+          </h3>
 
-          <h4>Course of Study:</h4>
+          <div class="experience-meta">
+            <span class="experience-meta-item experience-company">
+              <i class="experience-meta-icon bi bi-mortarboard" aria-hidden="true"></i>
+              <span>Nefarious Institution</span>
+            </span>
+            <span class="experience-meta-item experience-tenure">
+              <i class="experience-meta-icon bi bi-calendar3" aria-hidden="true"></i>
+              <span>2002-2004</span>
+            </span>
+          </div>
+
+          <h4 class="experience-block-label">
+            <i class="experience-block-icon bi bi-journal-text" aria-hidden="true"></i>
+            <span>Course of Study</span>
+          </h4>
           <ul class="list-star sentence">
             <li>Internet networking</li>
             <li>Desktop Support</li>
@@ -93,26 +121,49 @@ oc: tune-or-explore
           </ul>
         </section>
 
-        <section>
-          <h3>
-            <strong>Concurrent Enrollment</strong>
-            –
-            <em>Aims Community College</em>
-            – 2001-2002</h3>
+        <section class="experience-entry education-entry">
+          <h3 class="experience-heading">
+            <span class="experience-role">Concurrent Enrollment</span>
+          </h3>
 
-          <h4>Course of Study:</h4>
+          <div class="experience-meta">
+            <span class="experience-meta-item experience-company">
+              <i class="experience-meta-icon bi bi-mortarboard" aria-hidden="true"></i>
+              <span>Aims Community College</span>
+            </span>
+            <span class="experience-meta-item experience-tenure">
+              <i class="experience-meta-icon bi bi-calendar3" aria-hidden="true"></i>
+              <span>2001-2002</span>
+            </span>
+          </div>
+
+          <h4 class="experience-block-label">
+            <i class="experience-block-icon bi bi-journal-text" aria-hidden="true"></i>
+            <span>Course of Study</span>
+          </h4>
           <ul class="list-star sentence">
             <li>Computer Science</li>
           </ul>
         </section>
 
-        <section>
-          <h3>
-            <strong>High School</strong>
-            –
-            <em>Union Colony Preparatory School</em>
-            – Class of 2002</h3>
-          <h4>Course of Study:</h4>
+        <section class="experience-entry education-entry">
+          <h3 class="experience-heading">
+            <span class="experience-role">High School</span>
+          </h3>
+          <div class="experience-meta">
+            <span class="experience-meta-item experience-company">
+              <i class="experience-meta-icon bi bi-mortarboard" aria-hidden="true"></i>
+              <span>Union Colony Preparatory School</span>
+            </span>
+            <span class="experience-meta-item experience-tenure">
+              <i class="experience-meta-icon bi bi-calendar3" aria-hidden="true"></i>
+              <span>Class of 2002</span>
+            </span>
+          </div>
+          <h4 class="experience-block-label">
+            <i class="experience-block-icon bi bi-journal-text" aria-hidden="true"></i>
+            <span>Course of Study</span>
+          </h4>
           <ul class="list-star sentence">
             <li>Journalism</li>
             <li>Communications</li>
