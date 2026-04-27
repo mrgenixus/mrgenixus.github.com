@@ -4,14 +4,14 @@ title: Resume
 oc: tune-or-explore
 ---
 <div class="container py-3">
-  <div class="row align-items-end flex-wrap mw-100">
-    <div class="col-md-8 pe-2">
+  <div id="resume-header" class="row align-items-end flex-wrap mw-100">
+    <div class="col-12 col-md-8 pe-2">
       <h1 class="display-1">
         Ben West
       </h1>
       <div class="h2 text-secondary">Architect & Execution Expert</div>
     </div>
-    <div class="col-md-4">
+    <div class="col-12 col-md-4 mt-3 mt-md-0">
       <ul class="list-unstyled">
         <li>
           <a class="link-reset" href="tel:+1 (970) 460-6664">+1 (970) 460-6664</a>
@@ -81,7 +81,7 @@ oc: tune-or-explore
                   <i class="experience-block-icon bi bi-tools" aria-hidden="true"></i>
                   <span>Skills</span>
                 </h4>
-                <ul class="list-star sentence">
+                <ul class="list-star badge-list">
                   {% for skill in experience.skills %}
                     <li>{{ skill }}</li>
                   {% endfor %}
@@ -113,7 +113,7 @@ oc: tune-or-explore
             <i class="experience-block-icon bi bi-journal-text" aria-hidden="true"></i>
             <span>Course of Study</span>
           </h4>
-          <ul class="list-star sentence">
+          <ul class="list-star badge-list">
             <li>Internet networking</li>
             <li>Desktop Support</li>
             <li>Windows and Unix Technology</li>
@@ -141,7 +141,7 @@ oc: tune-or-explore
             <i class="experience-block-icon bi bi-journal-text" aria-hidden="true"></i>
             <span>Course of Study</span>
           </h4>
-          <ul class="list-star sentence">
+          <ul class="list-star badge-list">
             <li>Computer Science</li>
           </ul>
         </section>
@@ -164,7 +164,7 @@ oc: tune-or-explore
             <i class="experience-block-icon bi bi-journal-text" aria-hidden="true"></i>
             <span>Course of Study</span>
           </h4>
-          <ul class="list-star sentence">
+          <ul class="list-star badge-list">
             <li>Journalism</li>
             <li>Communications</li>
             <li>Document Review</li>

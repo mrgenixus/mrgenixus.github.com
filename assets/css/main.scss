@@ -92,37 +92,44 @@ p, section {
 .experience-entry {
   padding: .85rem 0 .65rem;
   margin-top: .75rem;
-  border-top: 1px solid rgba($body-color, .12);
+  background-image: linear-gradient(rgba($body-color, .22), rgba($body-color, .22));
+  background-repeat: no-repeat;
+  background-position: center 0;
+  background-size: 66% 1px;
 }
 
 .experience-entry:first-of-type {
   margin-top: 0;
   padding-top: .35rem;
-  border-top: 0;
+  background-image: none;
 }
 
 .experience-heading {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  gap: .35rem .55rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: .25rem .55rem;
   margin-bottom: .1rem;
 }
 
 .experience-role {
+  flex: 1 1 auto;
   font-weight: 650;
 }
 
 .experience-detail {
   display: inline-flex;
   align-items: center;
+  justify-content: flex-end;
   padding: .12rem .45rem;
   border: 1px solid rgba($body-color, .14);
   border-radius: 999px;
   color: $secondary;
-  font-size: .74em;
+  font-size: .68em;
   letter-spacing: .04em;
   text-transform: uppercase;
+  text-align: right;
   white-space: nowrap;
 }
 
@@ -131,7 +138,13 @@ p, section {
   flex-wrap: wrap;
   align-items: center;
   gap: .25rem .8rem;
+  width: 100%;
   margin-bottom: .35rem;
+  padding-bottom: .18rem;
+  background-image: linear-gradient(rgba($body-color, .12), rgba($body-color, .12));
+  background-repeat: no-repeat;
+  background-position: left calc(100% - 1px);
+  background-size: 50% 1px;
   color: $secondary;
   font-size: .92rem;
 }
@@ -152,10 +165,17 @@ p, section {
 }
 
 .experience-block-label {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: .45rem;
-  margin: .65rem 0 .22rem;
+  width: 100%;
+  margin: .58rem 0 .1rem;
+  padding-bottom: .16rem;
+  background-image: linear-gradient(rgba($body-color, .10), rgba($body-color, .10));
+  background-repeat: no-repeat;
+  background-position: left calc(100% - 1px);
+  background-size: 50% 1px;
   color: $secondary;
   font-size: .88rem;
   font-weight: 800;
@@ -212,6 +232,25 @@ section[data-skills=""] {
   }
 }
 
+ul.badge-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+
+  li {
+    @extend .badge;
+    @extend .rounded-pill;
+    @extend .text-bg-light;
+    @extend .border;
+    @extend .text-dark;
+    display: inline-flex;
+    align-items: center;
+    padding: .35rem .65rem;
+    font-weight: 600;
+    letter-spacing: .01em;
+  }
+}
+
 ul#list-skills {
   display: flex;
   flex-wrap: wrap;
@@ -244,6 +283,33 @@ ul#list-skills {
     .h1, h1 {
       color: color-contrast($value, $color-contrast-dark: $purple-600, $color_contrast_light: $purple-200) if($enable-important-utilities, !important, null);
     }
+  }
+}
+
+@media (min-width: 768px) {
+  #skills-anchor {
+    position: sticky;
+    top: 1rem;
+    align-self: flex-start;
+    max-height: calc(100vh - 2rem);
+    overflow: auto;
+    padding-right: .35rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .container {
+    padding-bottom: 5rem;
+  }
+}
+
+#resume-header {
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  #resume-header {
+    flex-direction: row;
   }
 }
 
