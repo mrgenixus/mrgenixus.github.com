@@ -23,6 +23,16 @@ email: ben@radialdevgroup.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://info.mrgenix.us" # the base hostname & protocol for your site, e.g. http://example.com
 
+# Bootstrap 5.3 currently uses these legacy Sass constructs internally. Keep
+# Dart Sass enabled while hiding this known upstream warning noise; other
+# deprecation categories and all compilation errors remain visible.
+sass:
+  silence_deprecations:
+    - import
+    - if-function
+    - global-builtin
+    - color-functions
+
 defaults:
   -
     scope:
