@@ -260,7 +260,7 @@ window.requestAnimationFrame(() => {
 
 document.querySelector('#reset').addEventListener('click', () => {
   const url = new URL(window.location.href);
-  url.searchParams.forEach((_v, key) => url.searchParams.delete(key));
+  url.search = '';
   window.location.assign(url.toString());
 });
 
