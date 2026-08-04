@@ -5,7 +5,12 @@ source "https://rubygems.org"
 #
 #     bundle exec jekyll serve
 #
-gem "github-pages", group: :jekyll_plugins
+# Build the site in Actions with modern Jekyll and Dart Sass rather than the
+# legacy Ruby Sass stack bundled by github-pages.
+gem "jekyll", "~> 4.4"
+gem "jekyll-sass-converter", "~> 3.1"
+gem "sass-embedded", "~> 1.89"
+gem "webrick", "~> 1.9"
 
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
