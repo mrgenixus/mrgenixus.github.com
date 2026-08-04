@@ -68,7 +68,24 @@
     const url = new URL(window.location.href);
     state.mode = url.searchParams.get('mode') ?? 'explore';
     state.filterLogic = url.searchParams.get('filter-logic') ?? 'and';
-    const updateMode = (newMode) => {
+    const syncStateToUrl = () => {
+      const url = new URL(window.location.href);
+      if (state.mode === 'explore') {
+        url.searchParams.delete('mode');
+      } else {
+        url.searchParams.set('mode', state.mode);
+      }
+
+      if (state.mode === 'filter' && state.filterLogic !== 'and') {
+        url.searchParams.set('filter-logic', state.filterLogic);
+      } else {
+        url.searchParams.delete('filter-logic');
+      }
+
+      window.history.replaceState({}, '', url);
+    };
+
+    const updateMode = (newMode, shouldUpdateUrl = true) => {
       window.requestAnimationFrame(() => {
         state.mode = newMode
         const currentModeButton = buttons.find((el) => {
@@ -76,10 +93,11 @@
         });
         (currentModeButton ?? {}).checked=true;
         container.dataset['mode'] = state.mode;
+        if (shouldUpdateUrl) syncStateToUrl();
       });
     }
 
-    const updateFilterLogic = (newLogic) => {
+    const updateFilterLogic = (newLogic, shouldUpdateUrl = true) => {
       window.requestAnimationFrame(() => {
         state.filterLogic = newLogic;
         const currentFilterLogicButton = filterLogicButtons.find((el) => {
@@ -87,6 +105,7 @@
         });
         (currentFilterLogicButton ?? {}).checked = true;
         filterLogicContainer.dataset['filterLogic'] = state.filterLogic;
+        if (shouldUpdateUrl) syncStateToUrl();
       });
     }
 
@@ -106,7 +125,7 @@
       });
     });
 
-    updateMode(state.mode);
-    updateFilterLogic(state.filterLogic);
+    updateMode(state.mode, false);
+    updateFilterLogic(state.filterLogic, false);
   </script>
 {% endif %}

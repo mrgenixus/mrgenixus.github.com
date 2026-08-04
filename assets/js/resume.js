@@ -55,7 +55,7 @@ const filterState = (() => {
 
   const sectionHasSelectedSkills = (section, selected) => {
     const skills = arrayFromString(section.getAttribute('data-skills'), ' ');
-    const logic = window.mode?.dataset?.filterLogic ?? FILTER_LOGIC_AND;
+    const logic = window?.['filter-logic']?.dataset?.filterLogic ?? FILTER_LOGIC_AND;
     if (logic === FILTER_LOGIC_OR) {
       return selected.some((skill) => skills.includes(skill));
     }
@@ -68,6 +68,30 @@ const filterState = (() => {
         hide(section);
       } else {
         show(section);
+      }
+    });
+  };
+
+  const syncSkillsToUrl = () => {
+    const url = new URL(window.location.href);
+    const skills = selectedSkillSlugs();
+
+    if (skills.length) {
+      url.searchParams.set('skills', skills.join(','));
+    } else {
+      url.searchParams.delete('skills');
+    }
+
+    window.history.replaceState({}, '', url);
+  };
+
+  const restoreSkillsFromUrl = () => {
+    const url = new URL(window.location.href);
+    const selectedSkills = new Set(arrayFromString(url.searchParams.get('skills')));
+
+    tagList.forEach((tag) => {
+      if (selectedSkills.has(tag.slug) && !isSelected(tag)) {
+        tag.highlight();
       }
     });
   };
@@ -105,6 +129,7 @@ const filterState = (() => {
     snapshotBaseVisibility();
     active = true;
     clearSelectedSkills();
+    restoreSkillsFromUrl()
     restoreBaseVisibility();
     apply();
   };
@@ -120,6 +145,7 @@ const filterState = (() => {
     apply,
     enter,
     exit,
+    syncSkillsToUrl,
   };
 })();
 
@@ -134,13 +160,12 @@ const updateModeClass = ((mode_cache) => () => {
 
   window.requestAnimationFrame(() => {
     try {
-      for (className in document.body.classList.values()) {
-        if (/mode-.*/.test(className)) {
+      for (const className of document.body.classList) {
+        if (className.startsWith('mode-')) {
           document.body.classList.remove(className);
         }
       }
       document.body.classList.add(`mode-${mode}`);
-      console.log(document.body.classList);
     } catch (e) {
       console.warn(e);
     }
@@ -150,12 +175,10 @@ const updateModeClass = ((mode_cache) => () => {
       section.contentEditable = (mode === TUNE);
     });
 
-    if (!isInitialCall) {
-      if (mode === FILTER) {
-        filterState.enter();
-      } else if (previousMode === FILTER) {
-        filterState.exit();
-      }
+    if (mode === FILTER) {
+      filterState.enter();
+    } else if (previousMode === FILTER) {
+      filterState.exit();
     }
   });
   return true;
@@ -212,7 +235,7 @@ arrayFromString(suppress).forEach((project) => {
 });
 
 const feature = url.searchParams.get(FEATURE);
-const featuredProjectIds = arrayFromString(feature).map(getSectionId);
+const featuredProjectIds = arrayFromString(feature).map(getExperienceSectionId);
 
 if (featuredProjectIds.length) {
   window.requestAnimationFrame(() => {
@@ -237,12 +260,16 @@ window.requestAnimationFrame(() => {
 
 document.querySelector('#reset').addEventListener('click', () => {
   const url = new URL(window.location.href);
-  url.searchParams.forEach((_v, key) => url.searchParams.delete(key));
+  url.search = '';
   window.location.assign(url.toString());
 });
 
 function getSectionId(project) {
   return `#${EXPERIENCE_SECTION_ID}${project}, #${EDUCATION_SECTION_ID}${project}`;
+}
+
+function getExperienceSectionId(project) {
+  return `${EXPERIENCE_SECTION_ID}${project}`;
 }
 
 function getSectionByProject(project) {
