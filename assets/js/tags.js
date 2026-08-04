@@ -140,6 +140,7 @@ export class SkillTag extends Tag {
       })
     } else if (mode === 'filter') {
       this.highlight();
+      window.resumeFilter?.syncSkillsToUrl();
       window.resumeFilter?.apply();
     }
   }
