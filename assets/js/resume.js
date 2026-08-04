@@ -160,8 +160,8 @@ const updateModeClass = ((mode_cache) => () => {
 
   window.requestAnimationFrame(() => {
     try {
-      for (className in document.body.classList.values()) {
-        if (/mode-.*/.test(className)) {
+      for (const className of document.body.classList) {
+        if (className.startsWith('mode-')) {
           document.body.classList.remove(className);
         }
       }
