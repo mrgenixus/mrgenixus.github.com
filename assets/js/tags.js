@@ -80,16 +80,8 @@ export class Tag {
     return this.#slug;
   }
 
-  get count() {
-    return this.#elements.length;
-  }
-  get elements() {
-    return Array.from(this.#elements);
-  }
-
   #updateInnerText() {
     this.#listItem.innerText = `${this.#name}`;
-    // this.#listItem.style.fontSize = `${(100 + 15 * this.count)}%`;
   }
 
   get listItem() {
@@ -99,6 +91,7 @@ export class Tag {
   toString() {
     return this.slug;
   }
+
 }
 
 export class SkillTag extends Tag {
@@ -192,18 +185,8 @@ export class TagList {
     return tl;
   }
 
-  toSorted(...args) {
-    const tl = new TagList()
-    tl.tags = this.tags.toSorted(...args1);
-    return tl;
-  }
-
   map(...args) {
     return this.tags.map(...args);
-  }
-
-  reduce(...args) {
-    return this.tags.reduce(...args);
   }
 
   forEach(...args) {

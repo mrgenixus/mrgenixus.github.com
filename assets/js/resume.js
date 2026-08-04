@@ -235,7 +235,7 @@ arrayFromString(suppress).forEach((project) => {
 });
 
 const feature = url.searchParams.get(FEATURE);
-const featuredProjectIds = arrayFromString(feature).map(getSectionId);
+const featuredProjectIds = arrayFromString(feature).map(getExperienceSectionId);
 
 if (featuredProjectIds.length) {
   window.requestAnimationFrame(() => {
@@ -266,6 +266,10 @@ document.querySelector('#reset').addEventListener('click', () => {
 
 function getSectionId(project) {
   return `#${EXPERIENCE_SECTION_ID}${project}, #${EDUCATION_SECTION_ID}${project}`;
+}
+
+function getExperienceSectionId(project) {
+  return `${EXPERIENCE_SECTION_ID}${project}`;
 }
 
 function getSectionByProject(project) {
